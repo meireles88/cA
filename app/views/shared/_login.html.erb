@@ -1,0 +1,14 @@
+
+
+    <div class="input-append">
+      <%= form_for(resource_name, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+      <%= f.email_field :email , :class => 'input-small email', :placeholder => 'Email' %>
+      <%= f.password_field :password , :class => 'input-small password', :placeholder => 'Password' %>
+          <input type="submit" class="btn btn-primary login" value="Login">
+    <% end %>
+      </div>
+
+  <span class="divider" role="menuitem"></span>
+  <small role="menuitem">Ainda não se inscreveu? <a href="/register" class="signup">Inscreva-se agora!</a></small>
+  <small role="menuitem"><a href="#">Esqueceu-se da password?</a></small>

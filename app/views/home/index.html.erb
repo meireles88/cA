@@ -1,0 +1,221 @@
+<body class="page page-index">
+<div id="navigation" class="wrapper">
+
+  <div class="navbar  navbar-static-top">
+
+    <!--Header & Branding region-->
+    <div class="header">
+      <div class="header-inner container">
+        <div class="row-fluid">
+          <div class="span8">
+            <!--branding/logo-->
+            <a class="brand" href="/" title="Home" style="margin-top: 0px;">
+              <img src="assets/logo.png"/>
+            </a>
+            <div class="slogan" id="top">Cartão Amigável</div>
+          </div>
+
+          <!--header rightside-->
+          <div class="span4">
+
+            <!--social media icons-->
+            <div class="social-media pull-right">
+              <!--@todo: replace with company social media details-->
+              <a href="http://www.twitter.com"><i class="icon-twitter"></i></a>
+              <a href="http://www.facebook.com"><i class="icon-facebook"></i></a>
+              <a href="http://www.linkedin.com"><i class="icon-linkedin"></i></a>
+              <a href="http://plus.google.com"><i class="icon-google-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="navbar-inner">
+
+        <!--mobile collapse menu button-->
+        <a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+
+        <!--user menu-->
+        <ul class="nav user-menu pull-right">
+          <% if user_signed_in?  %>   <a href="/logout" class="btn btn-primary">Logout</a>   <% else %>
+          <li><a href="/register" class="btn btn-primary signup">Inscrição</a></li>
+          <li class="dropdown">
+            <a href="login.htm" class="btn btn-primary dropdown-toggle login" id="login-drop" data-toggle="dropdown">Entrar</a>
+            <div class="dropdown-menu" role="menu" aria-labelledby="login-drop">
+
+              <%= render 'shared/login' %>
+                </div>
+          </li>
+              <% end %>
+        </ul>
+
+        <!--everything within this div is collapsed on mobile-->
+        <div class="nav-collapse collapse">
+
+          <!--main navigation-->
+          <ul class="nav" id="main-menu">
+            <li class="top"><a href="#top"><i class="icon-home hidden-phone"></i><span class="visible-phone">Início</span></a></li>
+            <li><a href="#como" class="menu-item">Como Funciona?</a></li>
+            <li><a href="#preco" class="menu-item">Quanto Custa?</a></li>
+            <li><a href="#quem" class="menu-item">Quem pode aderir?</a></li>
+            <li><a href="#sobre" class="menu-item">Sobre nós</a></li>
+            </li>
+            <% if user_signed_in?  %>
+                <li class="menu-item"><a href="#" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">Formulário</a></li>
+                <li class="menu-item"><a href="#" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">Perfil</a></li>
+
+          <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hero" id="highlighted">
+  <div class="inner">
+    <!--Flexslider Showshow-->
+    <section class="flexslider-wrapper container">
+      <div class="flexslider" data-slidernav="auto" data-transition="slide">
+        <!--The Slides-->
+        <div class="slides">
+
+          <!--Slide #1 with caption-->
+          <div class="slide row-fluid">
+            <div class="span7"><img src="assets/slides/slide1.png" alt="Slide 1" /></div>
+            <div class="span5 caption">
+              <h2>Cartão Amigável</h2>
+              <p>Descomplique o seu acidente!</p>
+              <a href="/register" class="btn btn-large btn-primary">Inscreva-se já!</a>
+            </div>
+          </div>
+
+          <!--Slide #2 straight image 1170px wide x 390px high-->
+          <div class="slide row-fluid">
+            <img src="assets/slides/slide2.png" alt="Slide 2" />
+          </div>
+
+          <!--Slide #3 & so on below-->
+
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="content">
+  <div class="container">
+    <!-- Services -->
+    <div class="block features">
+      <h2 class="title-divider" id="como"><span>Como <span class="de-em">Funciona?</span></span> <small>Breve explicação sobre o Cartão Amigável.</small></h2>
+      <ul class="thumbnails">
+        <li class="span4">
+          <a href="/register"><img src="assets/features/feature-1.png" alt="Feature 1" /></a>
+          <h3 class="title"><a href="features.htm">Inscrever-se <span class="de-em"></span></a></h3>
+          <p>Rhoncus adipiscing, magna integer cursus augue eros lacus porttitor magna. Dictumst, odio! Elementum tortor sociis in eu dis dictumst pulvinar lorem nec aliquam a nascetur.</p>
+        </li>
+
+        <li class="span4">
+          <a href="/login"><img src="assets/features/feature-2.png" alt="Feature 2" /></a>
+          <h3 class="title"><a href="features.htm">Logar-se <span class="de-em"></span></a></h3>
+          <p>Rhoncus adipiscing, magna integer cursus augue eros lacus porttitor magna. Dictumst, odio! Elementum tortor sociis in eu dis dictumst pulvinar lorem nec aliquam a nascetur.</p>
+        </li>
+
+        <li class="span4">
+          <a href="/login"><img src="assets/features/feature-3.png" alt="Feature 3" /></a>
+          <h3 class="title"><a href="features.htm">Usar <span class="de-em"></span></a></h3>
+          <p>Rhoncus adipiscing, magna integer cursus augue eros lacus porttitor magna. Dictumst, odio! Elementum tortor sociis in eu dis dictumst pulvinar lorem nec aliquam a nascetur.</p>
+        </li>
+      </ul>
+    </div>
+
+    <!--Pricing Table-->
+    <div class="block">
+      <h2 class="title-divider" id="preco"><span>Quanto <span class="de-em">Custa?</span></span> <small></small></h2>
+      <div class="row pricing-stack">
+
+        <div class="span12">
+          <div class="well">
+            <h3 class="title">Grátis <span class="fancy"></span></h3>
+            <p class="price"><span class="currency">€</span> <span class="digits">0<span>.00</span></span> <span class="term"></span></p>
+            <ul class="unstyled points">
+              <li>Veículo </li>
+              <li>Histórico</li>
+              <li>Perfil</li>
+              <li>Condutores</li>
+            </ul>
+            <a href="/register" class="btn btn-primary">Inscreva-se!</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fluid">
+        <!-- Plan features -->
+        <div class="well well-mini pull-center">
+          <h4 class="inline-el pad-right"><span> <span class="de-em"></span></span></h4>
+          <p class="inline-el pad-left muted"> <span class="spacer"></span>  <span class="spacer"></span>  <span class="spacer"></span>  <span class="spacer"></span> </p>
+        </div>
+      </div>
+    </div>
+
+    <!--Customer testimonial-->
+    <div class="block testimonials margin-top-large">
+      <h2 class="title-divider" id="quem"><span>Quem <span class="de-em">pode aderir?</span></span> <small>Todos</small></h2>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="content-below" class="wrapper">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="upsell">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="span3 col">
+        <div class="block contact-block" id="sobre">
+          <!--@todo: replace with company contact details-->
+          <h3>Contacte-nos</h3>
+          <address>
+            <p><abbr title="Phone"><i class="icon-phone"></i></abbr> 91</p>
+            <p><abbr title="Email"><i class="icon-envelope"></i></abbr> info@cartaoamigavel.pt</p>
+            <p><abbr title="Address"><i class="icon-home"></i></abbr> Rua do Souto nº1</p>
+          </address>
+        </div>
+      </div>
+
+      <div class="span6 col">
+        <div class="block">
+          <h3>Sobre nós</h3>
+          <p></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row-fluid">
+      <div id="toplink"><a href="#top" class="top-link" title="Back to top">Back To Top <i class="icon-chevron-up"></i></a></div>
+      <!--@todo: replace with company copyright details-->
+      <div class="subfooter">
+        <div class="span6">
+          <p>Template por <a href="#">Mário Meireles</a> | Copyright 2013 &copy; Mário Meireles</p>
+        </div>
+      </div>
+    </div>        </div>
+</footer>
+</body>

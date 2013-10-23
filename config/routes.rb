@@ -11,6 +11,8 @@ CA::Application.routes.draw do
     get "/entrar" => "devise/sessions#new"
     get "/registo" => "devise/registrations#new"
     get "/register" => "devise/registrations#new"
+
+  get "/formulario" => "formulario#formamigavel"
   end
 
 

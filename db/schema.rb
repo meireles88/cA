@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902002555) do
+ActiveRecord::Schema.define(version: 20131023152858) do
+
+  create_table "accident_types", force: true do |t|
+    t.string   "accident"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", force: true do |t|
+    t.text     "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "driver_licenses", force: true do |t|
+    t.text     "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ensurance_companies", force: true do |t|
+    t.text     "company"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "formularios", force: true do |t|
     t.datetime "created_at"
@@ -48,5 +72,17 @@ ActiveRecord::Schema.define(version: 20130902002555) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "vehicle_categories", force: true do |t|
+    t.text     "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "zones", force: true do |t|
+    t.text     "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

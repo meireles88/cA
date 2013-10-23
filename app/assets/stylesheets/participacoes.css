@@ -1,0 +1,323 @@
+#container .contents {
+    width: 810px;
+}
+#container .contents .content .middle form .label {
+    padding-bottom: 0;
+    padding-top: 0;
+    color: #000000;
+    font-size: 10px;
+    font-weight: normal;
+    padding-right: 5px;
+    float:none;
+}
+#container .contents .content .middle form label {
+    color: #000000;
+    font-size: 10px;
+    font-weight: normal;
+}
+#footer .contents {
+    width: 810px;
+}
+/* PANELS */
+.panelBase
+{
+    text-align:left;
+    background-color:#F2F2F2;
+    padding: 1px;
+}
+.panelBase .disabled
+{
+    background-color:#f4f4f4;
+    color:#6d6d6d;
+}
+.panel
+{
+    margin: 10px 0px;
+}
+.topPanel {
+    margin: 5px 0px;
+    height: 60px;
+}
+.leftPanel
+{
+    background-color: #d6d7ed;
+    margin:2px 5px 2px 0;
+}
+.middlePanel
+{
+    margin:5px;
+}
+.rightPanel
+{
+    background-color: #f6ffd6;
+    margin:2px 0 2px 5px;
+}
+.leftPanel .panelTableContent
+{
+    margin:3px;
+}
+.rightPanel .panelTableContent
+{
+    margin:3px;
+}
+.panelTitle
+{
+    font-weight:bold;
+    text-transform: uppercase;
+    margin:5px 0 5px 20px;
+}
+.panelNumber
+{
+    border-right:1px solid black;
+    border-bottom:1px solid black;
+    background-color: #cdcfde;
+    padding:0 3px 1px;
+}
+.panelTableContent {
+    margin:3px 10px;
+}
+.questionmark
+{
+    float: right;
+    cursor:pointer;
+}
+/* CONTAINERS */
+.leftContainer
+{
+    vertical-align:top;
+    width:33%;
+    background-color: #5474be;
+}
+.middleContainer
+{
+    vertical-align:top;
+    width:33%;
+}
+.rightContainer
+{
+    vertical-align:top;
+    width:33%;
+    background-color: #f6ea37;
+}
+.subTitleCell
+{
+    font-weight:bold;
+    font-size:8pt;
+    margin-top:10px;
+    margin-bottom: 5px;
+}
+/* CONTROLS */
+.ctCellLabel
+{
+    float: left;
+    margin-right: 5px;
+    margin-top: 4px;
+}
+.panelBase textarea
+{
+    border-style: dotted;
+}
+input, select
+{
+    min-height: 15px;
+}
+input, select, textarea
+{
+    font-family: Arial;
+    font-size: 10px;
+    background-color: transparent;
+    border-style: none none dotted;
+    border-width: 1px;
+    color: #000000;
+    border-color: black;
+}
+/* GRID */
+#container .contents .content .middle table.list tr td
+{
+    text-align:center;
+}
+#container .contents .content .middle table.list tr th span
+{
+    font-size: larger;
+    font-weight: bold;
+}
+.disabled
+{
+    background-color:#EDF1EF;
+}
+#rclmts, #testemunhas, #autoridades , #responsavel {
+    padding-left:10px;
+}
+.row .cell, .row .singleCell, .row .subTitleCell, #rclmtsFooter .cell, .rowFoot #testFooter .cell
+{
+    float: left;
+    margin-right:5px;
+    margin-bottom:2px;
+}
+.leftPanel input, .leftPanel select
+{
+    width:98%;
+    background-color:#d6d7ed;
+}
+.rightPanel input, .rightPanel select
+{
+    width:98%;
+    background-color:#f6ffd6;
+}
+.leftPanel .radio input, .rightPanel .radio input
+{
+    width:60px;
+    border-style: none none none;
+}
+#container .contents .content .middle .radio input{
+    border-style: none none none;
+}
+.panelBase .ctrlYesNo
+{
+    width:70px;
+    text-align:center;
+}
+/* CONTROLS - END */
+/* CICUNSTANCAIS */
+.chkPanel td
+{
+    vertical-align:bottom;
+    border-bottom:1px solid grey;
+}
+.chkPanel input
+{
+    margin-top:15px;
+}
+.chkPanel tr
+{
+    background-color:White;
+}
+.chkPanel tr:hover
+{
+    background-color:lightGrey;
+}
+.esquemaImg
+{
+    cursor:pointer;
+    width:230px;
+    height:150px;
+}
+.zoom a
+{
+    text-decoration:none;
+    color:Black;
+}
+.zoom:hover
+{
+    background-color:#7DB955;
+    font-size:x-large;
+    margin-left:-10px;
+    margin-top:-20px;
+    padding:5px;
+    position:absolute;
+}
+.controlsPat input, .controlsPat select
+{
+    width:90%;
+}
+.pEmbInp input, .pEmbInp select
+{
+    border:none;
+}
+.circunsCounterBox
+{
+    border:1px outset gray;
+    padding:2px 8px;
+    text-align:center;
+}
+.readonly input
+{
+    border-style:none;
+}
+.lblTitle90
+{
+    width:90px;
+}
+.lblTitle160
+{
+    width:160px;
+}
+.lblTitle180
+{
+    width:180px;
+}
+.pnlDivfields
+{
+    float:left;
+    width:290px;
+    margin-right:15%;
+    white-space:nowrap;
+}
+.pnlDivfields2
+{
+    float:left;
+    margin-right:3%;
+}
+#fancybox-inner
+{
+    font-size:16px;
+}
+#fancybox-inner .panelTableContent
+{
+    margin-bottom:20px;
+    margin-top:5px;
+}
+#fancybox-inner .panelTableContent div
+{
+    margin-bottom:5px;
+    margin-top:5px;
+}
+#fancybox-inner .label span
+{
+    white-space:nowrap;
+}
+#fancybox-inner .panelBase input, #fancybox-inner .panelBase select
+{
+    font-size:16px;
+}
+#fancybox-inner .lblTitle90
+{
+    width:120px;
+}
+#fancybox-inner .lblTitle160
+{
+    width:230px;
+}
+#fancybox-inner .lblTitle180
+{
+    width:260px;
+}
+#fancybox-inner .pnlDivfields
+{
+    float:none;
+    width:100%;
+}
+#fancybox-inner .pnlDivfields2
+{
+    width:100%;
+}
+#fancybox-inner .zoom
+{
+    display:none;
+}
+.disablePanel
+{
+    background-color:#F6EA37;
+    position:absolute;
+    right:0.01px;
+    left:0.01px;
+    width:400px;
+    opacity:0.75;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+    filter: alpha(opacity=75);
+}
+
+#divDisableVeiculoA
+{
+    background-color: #5474BE;
+}

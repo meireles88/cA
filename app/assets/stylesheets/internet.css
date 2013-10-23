@@ -1,0 +1,83 @@
+/*SIZE - #header .contents | #container .contents | #footer .contents*/
+html
+{
+    background-color:#B9B9B9;
+}
+/*HEADER*/
+#header .contents{
+    width:940px;
+}
+/*CONTAINER*/
+#container {
+    background: url("../../img/bg_bkg_pattern_small.png") repeat-x scroll left top #B9B9B9;
+    position:relative;
+    width:100%;
+    height:auto;
+    margin-bottom:-1px;
+}
+/*TITLE TOP*/
+#container .contents >.top
+{
+    height:45px;
+    background:transparent url('../../img/bg_info_sep.png') repeat-x bottom left;
+    margin-bottom:8px;
+}
+#container .contents >.top .left h1{
+    color:#fff;
+    font-size:24px;
+}
+/*CONTENTS*/
+#container .contents
+{
+    background: url("../../img/bg_mainbanner_small.jpg") no-repeat scroll center top transparent;
+    width: 940px;
+}
+#container .contents .content .pnlFrame .pnlFrameTopL
+{
+    background:url("../../img/internet/framemain_top_left.png") no-repeat scroll center center transparent;
+    width: 18px;
+}
+#container .contents .content .pnlFrame .pnlFrameTop
+{
+    background: url('../../img/internet/framemain_top.png') repeat-x scroll center center transparent;
+}
+#container .contents .content .pnlFrame .pnlFrameTopR
+{
+    background:url("../../img/internet/framemain_top_right.png") no-repeat scroll center center transparent;
+    width: 18px;
+}
+#container .contents .content .pnlFrame .pnlFrameBottomL
+{
+    background:url("../../img/internet/framemain_bottom_left.png") no-repeat scroll center center transparent;
+    width: 18px;
+}
+#container .contents .content .pnlFrame .pnlFrameBottom
+{
+    background: url('../../img/internet/framemain_bottom.png') repeat-x scroll center center transparent;
+}
+#container .contents .content .pnlFrame .pnlFrameBottomR
+{
+    background:url("../../img/internet/framemain_bottom_right.png") no-repeat scroll center center transparent;
+    width: 18px;
+}
+/*MIDDLE*/
+#container .contents .content .middle
+{
+    background-color:#ffffff;
+}
+#container .contents .content .middle .label{
+    padding-bottom:15px;
+}
+#container .contents .content .middle .actions{
+    background:transparent url('../../img/internet/bg_info_ullist_sep.png') repeat-x left 20px;
+    padding-top:30px;
+}
+/*Footer*/
+#footer{
+    background:none repeat scroll 0 0 #B9B9B9;
+}
+#footer .contents
+{
+    color:#ebebeb;
+    width:940px;
+}

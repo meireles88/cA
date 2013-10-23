@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+@font-face {
+    font-family: 'DistrictThinRegular';
+    src: url('distth-webfont.eot');
+    src: local('?'), url('distth-webfont.woff') format('woff'), url('distth-webfont.ttf') format('truetype'), url('distth-webfont.svg#webfontE3kEHOot') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

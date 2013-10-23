@@ -1,0 +1,656 @@
+html
+{
+    color:#000;
+    font-family:Arial;
+}
+html > body,  x:-moz-any-link,  x:default {
+    left:-0.5px;
+    position:relative;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td
+{
+    margin:0;
+    padding:0;
+}
+/*HEADER*/
+#header {
+    background: url("../../img/internet/bg_header.png") repeat-x scroll left bottom #FDFDFD;
+    height: 77px;
+    position: relative;
+    width: 100%;
+    z-index: 200;
+}
+#header .contents{
+    position:relative;
+    margin:0 auto;
+    height:100%;
+    clear:both;
+    padding:0 10px;
+    height:77px;
+    text-align:left;
+}
+#header .contents .logo {
+    display: block;
+    float: left;
+    margin-left: 10px;
+    margin-top: 15px;
+    position: relative;
+    text-decoration: none;
+}
+/*HEADER END*/
+
+/*TITLE TOP*/
+#container .contents >.top
+{
+    position:relative;
+    width:100%;
+    padding-top:10px;
+}
+#container .contents >.top .left{
+    position:relative;
+    width:700px;
+    height:100%;
+    float:left;
+}
+#container .contents >.top .left .link{
+    position:relative;
+    height:12px;
+    padding-top:10px;
+    font-size:10px;
+    color:#fff;
+    font-weight:bold;
+    font-style:italic;
+}
+#container .contents >.top .left .link a{
+    position:relative;
+    color:#636363;
+    text-decoration:none;
+    font-style:normal;
+}
+#container .contents >.top .left h1{
+    font-weight:bold;
+}
+#container .contents >.top .right{
+    position:relative;
+    width:221px;
+    height:100%;
+    float:right;
+}
+/*TITLE TOP END*/
+/*CONTENTS*/
+#container .contents
+{
+    padding: 0 10px;
+    position:relative;
+    height:100%;
+    clear:both;
+    margin-bottom:-1px;
+    margin:0 auto;
+}
+#container .contents .content{
+    position:relative;
+    width:100%;
+    height:auto;
+}
+/*MIDDLE*/
+#container .contents .content .middle
+{
+    color: #252525;
+    display: block;
+    font-size: 12px;
+    height: auto;
+    margin: 0 auto;
+    min-height: 330px;
+    position: relative;
+    padding: 0 22px;
+}
+#container .contents .content .middle .left{
+    position:relative;
+    display:block;
+    width:240px;
+    height:auto;
+    float:left;
+}
+#container .contents .content .middle .left a:hover{
+    color:#636363;
+    text-decoration:none;
+}
+#container .contents .content .middle .right{
+    position:relative;
+    display:block;
+    width:640px;
+    height:auto;
+    float:left;
+    padding-left:20px;
+}
+#container .contents .content .middle h2{
+    position:relative;
+    color:#7db955;
+    font-size:20px;
+    padding:0;
+    padding-bottom:5px;
+}
+#container .contents .content .middle ul.list{
+    padding-top:20px;
+    margin-top:10px;
+}
+#container .contents .content .middle ul.list>li{
+    position:relative;
+    color:#7db955;
+    font-weight:bold;
+    font-size:12px;
+    padding-left:25px;
+    padding-bottom:20px;
+    background:transparent url('../../img/sn/bg_plus_bullet_normal.png') no-repeat top left;
+    padding-top:2px;
+    cursor:hand;
+    cursor:pointer;
+}
+#container .contents .content .middle ul.list>li.open{
+    background:transparent url('../../img/sn/bg_less_bullet_normal.png') no-repeat top left;
+}
+#container .contents .content .middle ul.number>li{
+    position:relative;
+    color:#252525;
+    font-weight:bold;
+    font-size:12px;
+    margin-left:30px;
+    padding-bottom:10px;
+    list-style-type: decimal;
+    color:#7db955;
+}
+#container .contents .content .middle ul.number>li p{
+    color:#252525;
+    font-weight:normal;
+}
+#container .contents .content .middle ul.bullet{
+
+}
+#container .contents .content .middle ul.bullet>li{
+    position:relative;
+    color:#252525;
+    font-weight:normal;
+    font-size:12px;
+    margin-left:30px;
+    padding-bottom:10px;
+    list-style-image: url('../../img/controls/bg_bullet_normal.png');
+}
+#container .contents .content .middle h5{
+    position:relative;
+    color:#7db955;
+    font-size:15px;
+    font-weight:normal;
+    padding-bottom:5px;
+}
+#container .contents .content .middle h5 em{
+    color:#ccc;
+}
+#container .contents .content .middle div.hr{
+    position:relative;
+    width:100%;
+    height:2px;
+    background:transparent url('../../img/sn/bg_hr.png') repeat-x top left;
+    margin:20px 0;
+}
+#container .contents .content .middle div.sep{
+    position:relative;
+    width:10px;
+    height:20px;
+    padding-top:4px;
+    float:left;
+    text-align:center;
+    color:#636363;
+    font-weight:bold;
+}
+#container .contents .content .middle a{
+    color:#7db955;
+    font-size:12px;
+    font-weight:bold;
+    text-decoration:none;
+}
+#container .contents .content .middle a:hover{
+    text-decoration:underline;
+}
+
+#container .contents .content .middle iframe{
+    border:0;
+}
+#container .contents .content .middle a .imgButtonFooter
+{
+    color:#666666;
+    font-family:tahoma;
+    font-size:11px;
+    font-weight:bold;
+    text-decoration:none;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor:pointer;
+}
+#container .contents .content .middle .bt{
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    height: 22px;
+    margin: 0 auto;
+    padding: 0 10px;
+    position: relative;
+    float:left;
+}
+#container .contents .content .middle .bt .btl {
+    background: url("../../img/controls/bt_background_left.png") no-repeat scroll right top transparent;
+    display: block;
+    float: left;
+    height: 22px;
+    position: relative;
+    width: 10px;
+}
+#container .contents .content .middle .bt .btc {
+    background: url("../../img/controls/bt_background.png") repeat-x scroll left top transparent;
+    display: block;
+    float: left;
+    height: 18px;
+    padding-top: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: relative;
+    width: auto;
+    text-align:center;
+}
+#container .contents .content .middle .bt .btc a {
+    color: #FFFFFF;
+    font-size: 11px;
+}
+#container .contents .content .middle .bt .btc a:hover {
+    text-decoration: none;
+}
+#container .contents .content .middle .bt .btr {
+    background: url("../../img/controls/bt_background_right.png") no-repeat scroll left top transparent;
+    float: left;
+    height: 22px;
+    position: relative;
+    width: 10px;
+}
+#container .contents .content .middle .label{
+    position:relative;
+    height:20px;
+    float:left;
+    font-size:12px;
+    color:#636363;
+    font-weight:bold;
+    padding-top:4px;
+    padding-right:10px;
+}
+#container .contents .content .middle .lblTitle{
+    position:relative;
+    height:20px;
+    float:left;
+    font-size:12px;
+    color:#7DB955;
+    font-weight:bold;
+    padding-top:4px;
+    padding-right:10px;
+}
+#container .contents .content .middle .TCTitPequeno {
+    color: #7DB955;
+    font-family: Arial;
+    font-size: 15px;
+    margin: 0 0 5px;
+    padding: 0;
+    position: relative;
+}
+#container .contents .content .middle div.text{
+    position:relative;
+    height:24px;
+    float:left;
+    padding-left:12px;
+    background:transparent url('../../img/controls/bg_input_left_text.png') no-repeat top left;
+    margin-right:12px;
+}
+#container .contents .content .middle div.text .corner{
+    position:absolute;
+    width:12px;
+    height:24px;
+    top:0;
+    right:-12px;
+    background:transparent url('../../img/controls/bg_input_right_text.png') no-repeat top left;
+}
+#container .contents .content .middle div.text input.text{
+    position:relative;
+    width:100%;
+    height:22px;
+    background:none;
+    border:0;
+    padding-top:2px;
+}
+#container .contents .content .middle div.textarea{
+    position:relative;
+    width:316px;
+    height:115px;
+    float:left;
+    background:transparent url('../../img/controls/bg_textarea.png') no-repeat top left;
+    padding:5px;
+}
+#container .contents .content .middle div.textarea textarea{
+    position:relative;
+    width:100%;
+    height:100px;
+    border:0;
+    overflow:auto;
+    background:none;
+    color: #777;
+}
+#container .contents .content .middle div.textarea .caption{
+    font-size: smaller;
+    margin-top: 10px;
+}
+#container .contents .content .middle table.list
+{
+    border: 1px solid #73B348;
+    font-size: 12px;
+    height: auto;
+    position: relative;
+}
+#container .contents .content .middle table.list tr th
+{
+    background: none repeat scroll 0 0 #73B348;
+    border-left: 1px solid #73B348;
+    color: #FFFFFF;
+    padding: 3px 10px;
+    position: relative;
+    vertical-align: middle;
+}
+#container .contents .content .middle table.list .datacell
+{
+    white-space:nowrap;
+    text-align: center;
+}
+#container .contents .content .middle table.list .nrcell
+{
+    text-align: right;
+}
+#container .contents .content .middle table.list .center
+{
+    text-align: center;
+}
+#container .contents .content .middle table.list tr td
+{
+    border-left: 1px solid #73B348;
+    border-right: 1px solid #73B348;
+    color: #656565;
+    padding: 3px 10px;
+    vertical-align: top;
+}
+#container .contents .content .middle table.list tr td.Conteudo
+{
+    border: 1px solid #73B348;
+}
+#container .contents .content .middle table.list tr td.ConteudoSelect
+{
+    border: 1px solid #73B348;
+    background-color: #0B6029;
+    color: white;
+}
+#container .contents .content .middle table.list tr .emptyRow
+{
+    padding:0;
+}
+#container .contents .content .middle table.list tr.even{
+    background-color: #F7F6F7;
+}
+#container .contents .content .middle table.list td a {
+    color: #73B348;
+    font-weight: bold;
+}
+#container .contents .content .middle table.list tfoot {
+    background: none repeat scroll 0 0 #73B348;
+    height: 26px;
+    position: relative;
+}
+#container .contents .content .middle table.list tfoot td {
+    color: #FFFFFF;
+}
+#container .contents .content .middle table.list tfoot a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+#container .contents .content .middle table.list tfoot a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+#container .contents .content .middle .comment {
+    color: #ADACAC;
+    font-size: 10px;
+    position: relative;
+}
+#container .contents .content .middle .actions{
+    position:relative;
+    width:100%;
+    min-height:48px;
+    font-size:11px;
+    color:#636363;
+    clear:both;
+}
+#container .contents .content .middle .actions #waitMSG{
+    color: #002621;
+    display: none;
+    float: right;
+    font-weight: bold;
+}
+#container .contents .content .middle .actions #navButtons{
+    float: right;
+}
+#container .contents .content .middle .actions .imgButtonFooter {
+    color: #666666;
+    cursor: pointer;
+    cursor: hand;
+    font-family: tahoma;
+    font-size: 11px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+}
+#container .contents .content .middle .actions .btsubmit{
+    float:right;
+    padding-right:22px;
+}
+#container .contents .content .middle .printbody
+{
+    color:#000000;
+    font-family:Tahoma;
+    font-size:8pt;
+}
+#container .contents .content .middle .printbody .printTitle{
+    font-size:11pt;
+}
+#container .contents .content .middle .printbody .TableTitle{
+    font-weight:bold;
+    font-size:9pt;
+}
+#container .contents .content .middle .printbody .TableContent table
+{
+    border-style:solid;
+    border-width:1px;
+    border-color:Black;
+    font-size:8pt;
+    padding:3px;
+}
+#container .contents .content .middle .printbody .notesContent
+{
+    font-size:8pt;
+    font-weight:normal;
+}
+#container .contents .content .middle .printbody .printFooter
+{
+    text-align:left;
+    float:left;
+}
+#container .contents .content .middle .printbody .printFooterText
+{
+    font-family: Tahoma;
+    font-size: 5.0pt;
+}
+
+/*middle*/
+
+/*Footer*/
+#footer{
+    position:relative;
+    width:100%;
+    height:auto;
+    padding-top:30px;
+    margin-top: 1px;
+    z-index:2;
+}
+#footer .contents{
+    position:relative;
+    margin:0 auto;
+    height:70px;
+    padding:0 10px;
+    text-align:right;
+    font-size:11px;
+    padding-top:7px;
+}
+
+#footer .contents .bottom{
+    position:relative;
+    width:100%;
+    height:auto;
+}
+
+/*End Footer*/
+
+table
+{
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,img
+{
+    border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var,optgroup
+{
+    font-style:inherit;
+    font-weight:inherit;
+}
+del,ins
+{
+    text-decoration:none;
+}
+li
+{
+    list-style:none;
+}
+caption,th
+{
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6
+{
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,q:after
+{
+    content:'';
+}
+abbr,acronym
+{
+    border:0;font-variant:normal;
+}
+sup
+{
+    vertical-align:baseline;
+}
+sub
+{
+    vertical-align:baseline;
+}
+legend
+{
+    color:#000;
+}
+input,button,textarea,select,optgroup,option
+{
+    font-family:inherit;
+    font-size:inherit;
+    font-style:inherit;
+    font-weight:inherit;
+}
+input,button,textarea,select{
+    *font-size:100%;
+    color: #777777;
+}
+.numeric
+{
+    text-align:right;
+    padding-right:1px;
+    cursor:text;
+}
+*:focus {outline: none;}
+iframe{
+    z-index:0;
+}
+.pointer{
+    cursor:hand;
+    cursor:pointer;
+}
+.clear{
+    clear:both;
+}
+.clean{
+    clear:both;
+}
+/*controls*/
+.row {
+    clear: both;
+    width: 100%;
+}
+.ctSingleCell {
+    width: 100%;
+}
+.ctCell
+{
+    float: left;
+    padding-right: 5px;
+    padding-bottom: 4px;
+}
+textarea{
+    resize: none;
+    padding-left:2px;
+}
+.orange{
+    color:#ff7200! important;
+}
+.grey{
+    color:#636363! important;
+}
+.wordWrap
+{
+    white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    white-space: pre-wrap;       /* css-3 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+.nowrap
+{
+    white-space:nowrap;
+}
+.center
+{
+    text-align:center;
+}
+.strong
+{
+    font-weight: bold;
+}
+/*fixes*/
+.mac.gecko .selectdd{width:225px!important;}
+.gecko .selectdd{width:200px!important;}
+.iphone.safari .selectdd{width:215px!important;}
+.webkit.safari input, .iphone.safari input{-webkit-appearance: none;}
+.webkit.safari textarea, .iphone.safari textarea{-webkit-appearance: none;}
+.webkit.safari .selectdd{width:215px!important;}
+.mac.safari .selectdd{width:195px!important;}

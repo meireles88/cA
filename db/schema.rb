@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20131023152858) do
 
   create_table "accident_types", force: true do |t|
@@ -27,7 +26,7 @@ ActiveRecord::Schema.define(version: 20131023152858) do
   end
 
   create_table "driver_licenses", force: true do |t|
-    t.text     "type"
+    t.text     "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,9 +36,6 @@ ActiveRecord::Schema.define(version: 20131023152858) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-=======
-ActiveRecord::Schema.define(version: 20130902002118) do
->>>>>>> 95971445b4ca6d2f2030af2ce2266c17f307f71a
 
   create_table "formularios", force: true do |t|
     t.datetime "created_at"
@@ -84,7 +80,7 @@ ActiveRecord::Schema.define(version: 20130902002118) do
   end
 
   create_table "zones", force: true do |t|
-    t.text     "type"
+    t.text     "zone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

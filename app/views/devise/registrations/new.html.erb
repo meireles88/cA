@@ -93,8 +93,50 @@
               <div><%= f.label :password_confirmation %><br />
               <%= f.password_field :password_confirmation %></div>
 
+              <div><%= f.label :pessoa %><br />
+                <%= f.check_box :pessoa %></div>
+
               <div><%= f.label :nome %><br />
                 <%= f.text_field :nome %></div>
+
+              <div><%= f.label :apelido %><br />
+                <%= f.text_field :apelido %></div>
+
+              <div><%= f.label :morada %><br />
+                <%= f.text_field :morada %></div>
+
+              <div><%= f.label :localidade %><br />
+                <%= f.text_field :localidade %></div>
+
+              <div><%= f.label :cod_postal %><br />
+                <%= f.text_field :cod_postal %></div>
+
+              <div>
+                <select>
+                    <option value=""></option>
+                    <% @countries.each do |c| %>
+                        <option value="<%= c.country %>"><%= c.country %></option>
+                    <%end %>
+                </select>
+              </div>
+
+              <div><%= f.label :preferencia %><br />
+                <%= f.text_field :preferencia %></div>
+
+              <div><%= f.label :telefone %><br />
+                <%= f.text_field :telefone %></div>
+
+              <div><%= f.label :telemovel %><br />
+                <%= f.text_field :telemovel %></div>
+
+              <div><%= f.label :email %><br />
+                <%= f.text_field :email %></div>
+
+              <div><%= f.label :quem %><br />
+                <%= f.text_field :quem %></div>
+
+              <div><%= f.label :nif %><br />
+                <%= f.text_field :nif %></div>
 
               <div><%= f.submit "Sign up" %></div>
             <% end %>

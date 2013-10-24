@@ -36,7 +36,7 @@
 }
 .topPanel {
     margin: 5px 0px;
-    height: 60px;
+    height: 140px;
 }
 .leftPanel
 {
@@ -117,11 +117,11 @@
 {
     border-style: dotted;
 }
-input, select
+input1, select
 {
     min-height: 15px;
 }
-input, select, textarea
+input1, select, textarea
 {
     font-family: Arial;
     font-size: 10px;

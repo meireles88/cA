@@ -60,7 +60,7 @@
 
           <!--main navigation-->
           <ul class="nav" id="main-menu">
-            <li class="top"><a href="#top"><i class="icon-home hidden-phone"></i><span class="visible-phone">Início</span></a></li>
+            <li class="top"><a href="/"><i class="icon-home hidden-phone"></i><span class="visible-phone">Início</span></a></li>
             <li><a href="/#como" class="menu-item">Como?</a></li>
             <li><a href="/#preco" class="menu-item">Quanto?</a></li>
             <li><a href="/#quem" class="menu-item">Quem?</a></li>
@@ -68,7 +68,7 @@
             <% if user_signed_in?  %>
                 <li class="menu-item"><a href="/formulario#formamigavel" class="menu-item">Formulário</a></li>
                 <li class="menu-item"><a href="/perfil" class="menu-item">Perfil de <%= @user.nome %></a></li>
-          <% end %>
+            <% end %>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -81,8 +81,154 @@
     <div class="block">
       <div class="span12">
         <div class="well">
-          <b>NOME:</b> <%= @user.nome %>
-          <%= @user.apelido %>
+          <table>
+            <tbody>
+
+            <tr>
+              <td>
+                <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+                    <%= devise_error_messages! %>
+                    </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= f.label :tipo,"Individual" %>
+                      </td>
+                      <td>
+                        <%= f.radio_button(:tipo,"Individual")  %>
+                      </td>
+                      <td>
+                        <%= f.label :tipo,"Colectiva" %>
+                      </td>
+                      <td>
+                        <%= f.radio_button(:tipo,"Colectiva")  %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= f.label :nif %>
+                      </td>
+                      <td>
+                        <%= f.text_field :nif %>
+                      </td>
+                      <td>
+                        <%= f.label :email %>
+                      </td>
+                      <td>
+                        <%= f.email_field :email, :autofocus => true %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= f.label :password %>
+                      </td>
+                      <td>
+                        <%= f.password_field :password , :autocomplete => "off" %>
+                      </td>
+
+                      <td>
+                        <%= f.label :password_confirmation %>
+                      </td>
+                      <td>
+                        <%= f.password_field :password_confirmation %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= f.label :nome %>
+                      </td>
+                      <td>
+                        <%= f.text_field :nome %>
+                      </td>
+                      <td>
+                        <%= f.label :apelido %>
+                      </td>
+                      <td>
+                        <%= f.text_field :apelido %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= f.label :morada %>
+                      </td>
+                      <td>
+                        <%= f.text_field :morada %>
+                      </td>
+                      <td>
+                        <%= f.label :localidade %>
+                      </td>
+                      <td>
+                        <%= f.text_field :localidade %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= f.label :codpostal %>
+                      </td>
+                      <td>
+                        <%= f.text_field :codpostal %>
+                      </td>
+                      <td>
+                        País:
+                      </td>
+                      <td>
+                        <select>
+                          <option value=""></option>
+                          <% Country.all do |c| %>
+                              <option value="<%= c.country %>"><%= c.country %></option>
+                          <%end %>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= f.label :tipocontacto %>
+                      </td>
+                      <td>
+                        <select>
+                          <option value="tlm">Telemóvel</option>
+                          <option value="tlf">Telefone</option>
+                          <option value="ema">EMail</option>
+                        </select>
+                      </td>
+                      <td>
+                        <%= f.label :telefone %>
+                      </td>
+                      <td>
+                        <%= f.text_field :telefone %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= f.label :telemovel %>
+                      </td>
+                      <td>
+                        <%= f.text_field :telemovel %>
+                      </td>
+                      <td>
+                        <%= f.label :mail %>
+                      </td>
+                      <td>
+                        <%= f.text_field :mail %>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <%= f.submit "Update" %>
+                <% end %>
+                </td>
+                <td>
+                  <%= button_to "Cancelar conta", registration_path(resource_name), :data => { :confirm => "Tem a certeza?" }, :method => :delete %>
+                </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= render "devise/shared/links" %>
+                  </td>
+                </tr>
+                </tbody>
+          </table>
         </div>
       </div>
     </div>

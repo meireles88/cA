@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20131023152858) do
   end
 
   create_table "users", force: true do |t|
-    t.integer  "tipo"
+    t.boolean  "tipo"
     t.string   "apelido"
     t.string   "nome"
     t.string   "morada"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20131023152858) do
     t.string   "codpostal"
     t.string   "pais"
     t.string   "telemovel"
+    t.string   "telefone"
     t.integer  "tipocontacto"
     t.string   "mail"
     t.integer  "contactado"

@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.integer :tipo
+      t.boolean :tipo
       t.string :apelido
       t.string :nome
       t.string :morada
@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :codpostal
       t.string :pais
       t.string :telemovel
+      t.string :telefone
       t.integer :tipocontacto
       t.string :mail
       t.integer :contactado

@@ -13,6 +13,7 @@ CA::Application.routes.draw do
     get "/register" => "devise/registrations#new"
 
   get "/formulario" => "formulario#formamigavel"
+  get "/perfil" => "home#perfil"
   end
 
 

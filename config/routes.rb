@@ -9,11 +9,11 @@ CA::Application.routes.draw do
     get "/login" => "devise/sessions#new"
     get "/sair" => "devise/sessions#destroy"
     get "/entrar" => "devise/sessions#new"
+    get "/perfil" => "devise/registrations#edit"
     get "/registo" => "devise/registrations#new"
     get "/register" => "devise/registrations#new"
 
   get "/formulario" => "formulario#formamigavel"
-  get "/perfil" => "home#perfil"
   end
 
 

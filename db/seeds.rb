@@ -577,3 +577,36 @@ zones.each do |attributes|
 end
 
 
+
+users=[
+{tipo: true, nif: "123456789",nome:"Daniel",apelido: "Carvalho",morada: "Rua Das quinas",localidade: "Sitio ",codpostal: "6666-666",
+	pais: "Portugal", telemovel: "919985936",telefone: "253666666",tipocontacto: 1, mail: "dapcarvalho@gmail.com", password: "123456789"}
+]
+
+
+
+
+users.each do |attributes|
+  User.where(mail: attributes[:mail]).first_or_initialize.tap do |u|
+  u.nome = attributes[:nome]
+  u.tipo = attributes[:tipo]
+  u.nif = attributes[:nif]
+  u.apelido = attributes[:apelido]
+  u.morada = attributes[:morada]
+  u.localidade = attributes[:localidade]
+  u.codpostal = attributes[:codpostal]
+  u.pais = attributes[:pais]
+  u.telemovel = attributes[:telemovel]
+  u.telefone = attributes[:telefone]
+  u.tipocontacto = attributes[:tipocontacto]
+  u.mail = attributes[:mail]
+  u.email=attributes[:mail]
+  u.password = attributes[:password]
+  u.save!
+  end
+end
+
+
+
+
+

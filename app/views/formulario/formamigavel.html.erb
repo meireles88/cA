@@ -63,13 +63,13 @@
           <!--main navigation-->
           <ul class="nav" id="main-menu">
             <li class="top"><a href="#top"><i class="icon-home hidden-phone"></i><span class="visible-phone">Início</span></a></li>
-            <li><a href="/#como" class="menu-item">Como?</a></li>
-            <li><a href="/#preco" class="menu-item">Quanto?</a></li>
-            <li><a href="/#quem" class="menu-item">Quem?</a></li>
+            <li><a href="#como" class="menu-item">Como?</a></li>
+            <li><a href="#preco" class="menu-item">Quanto?</a></li>
+            <li><a href="#quem" class="menu-item">Quem?</a></li>
             </li>
             <% if user_signed_in?  %>
-                <li class="menu-item"><a href="/formulario#formamigavel" class="menu-item">Formulário</a></li>
-                <li class="menu-item"><a href="/perfil" class="menu-item">Perfil de <%= @user.nome %></a></li>
+                <li class="menu-item"><a href="/formulario" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">Formulário</a></li>
+                <li class="menu-item"><a href="#" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">Perfil de <%= @user.nome %></a></li>
             <% end %>
           </ul>
         </div><!--/.nav-collapse -->
@@ -530,7 +530,7 @@
                                                                 </span>
                                                               </td>
                                                               <td>
-                                                                <input name="m$hd$dapnlSegurTomLf$txtApelido$xnTxt" type="text" maxlength="45" id="m_hd_dapnlSegurTomLf_txtApelido_xnTxt" class="FormElementoWhite">
+                                                                <input name="m$hd$dapnlSegurTomLf$txtApelido$xnTxt" type="text" maxlength="45" id="m_hd_dapnlSegurTomLf_txtApelido_xnTxt" value="<%= @user.apelido %>" class="FormElementoWhite">
                                                               </td>
                                                             </tr>
                                                         </tbody>
@@ -545,7 +545,7 @@
                                                           </span>
                                                         </td>
                                                         <td>
-                                                          <input name="m$hd$dapnlSegurTomLf$txtNome$xnTxt" type="text" maxlength="45" id="m_hd_dapnlSegurTomLf_txtNome_xnTxt" class="FormElementoWhite">
+                                                          <input name="m$hd$dapnlSegurTomLf$txtNome$xnTxt" type="text" maxlength="45" id="m_hd_dapnlSegurTomLf_txtNome_xnTxt" value="<%= @user.nome %>" class="FormElementoWhite">
                                                         </td>
                                                       </tr>
                                                       </tbody>
@@ -562,7 +562,7 @@
                                                                     </span>
                                                                 </td>
                                                                 <td>
-                                                                    <input name="m$hd$dapnlSegurTomLf$daContacts$txtMorada$xnTxt" type="text" maxlength="45" id="m_hd_dapnlSegurTomLf_daContacts_txtMorada_xnTxt" class="FormElementoWhite">
+                                                                    <input name="m$hd$dapnlSegurTomLf$daContacts$txtMorada$xnTxt" type="text" maxlength="45" id="m_hd_dapnlSegurTomLf_daContacts_txtMorada_xnTxt" value="<%= @user.morada %>" class="FormElementoWhite">
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -574,7 +574,7 @@
                                                                     </span>
                                                                 </td>
                                                                 <td>
-                                                                    <input name="m$hd$dapnlSegurTomLf$daContacts$txtLocalidade$xnTxt" type="text" maxlength="45" id="m_hd_dapnlSegurTomLf_daContacts_txtLocalidade_xnTxt" class="FormElementoWhite">
+                                                                    <input name="m$hd$dapnlSegurTomLf$daContacts$txtLocalidade$xnTxt" type="text" maxlength="45" id="m_hd_dapnlSegurTomLf_daContacts_txtLocalidade_xnTxt" class="FormElementoWhite" value="<%= @user.localidade %>">
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -586,9 +586,8 @@
                                                                 </span>
                                                                 </td>
                                                                 <td>
-                                                                    <input name="m$hd$dapnlSegurTomLf$daContacts$txtCodPostal$xnTxt" type="text" maxlength="4" id="m_hd_dapnlSegurTomLf_daContacts_txtCodPostal_xnTxt" class="FormElementoWhite" onkeypress="" onkeyup="" style="width:30px;">
-                                                                    <input name="m$hd$dapnlSegurTomLf$daContacts$txtCodPostal$xnTxt1" type="text" maxlength="3" id="m_hd_dapnlSegurTomLf_daContacts_txtCodPostal_xnTxt1" class="FormElementoWhite" onkeypress="" onkeyup="" style="width:30px;">
-                                                                    <input name="m$hd$dapnlSegurTomLf$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlSegurTomLf_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" style="width:98%;">
+                                                                    
+                                                                    <input name="m$hd$dapnlSegurTomLf$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlSegurTomLf_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" style="width:98%;" value="<%= @user.codpostal %>">
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -602,8 +601,12 @@
                                                                     <select name="m$hd$dapnlSegurTomLf$daContacts$dropdPais$xnDropD" id="m_hd_dapnlSegurTomLf_daContacts_dropdPais_xnDropD" class="FormElementoWhite">
                                                                        <option value=""></option>
                                                                           <% @countries.each do |c| %>
-                                                                            <option value="<%= c.country %>"><%= c.country %></option>
-                                                                          <%end %>
+                                                                            <% if c.country == @user.pais %>
+                                                                            <option selected value="<%= c.country %>"><%= c.country %></option>
+                                                                          
+                                                                            <% else %>
+                                                                            <option value="<%= c.country %>"><%= c.country %></option><% end %>
+                                                                          <%end%>
                                                                     </select>
                                                                 </td>
                                                             </tr>
@@ -633,7 +636,7 @@
                                                                 </span>
                                                               </td>
                                                               <td>
-                                                                <input name="m$hd$dapnlSegurTomLf$daContacts$txtTelefone$xnTxt" type="text" maxlength="9" id="m_hd_dapnlSegurTomLf_daContacts_txtTelefone_xnTxt" class="FormElementoWhite" onkeypress="">
+                                                                <input name="m$hd$dapnlSegurTomLf$daContacts$txtTelefone$xnTxt" type="text" maxlength="9" id="m_hd_dapnlSegurTomLf_daContacts_txtTelefone_xnTxt" class="FormElementoWhite" onkeypress="" value="<%= @user.telefone %>">
                                                               </td>
                                                             </tr>
                                                             <tr>
@@ -645,7 +648,7 @@
                                                                 </span>
                                                               </td>
                                                               <td>
-                                                                <input name="m$hd$dapnlSegurTomLf$daContacts$txtTelemovel$xnTxt" type="text" maxlength="9" id="m_hd_dapnlSegurTomLf_daContacts_txtTelemovel_xnTxt" class="FormElementoWhite" onkeypress="">
+                                                                <input name="m$hd$dapnlSegurTomLf$daContacts$txtTelemovel$xnTxt" type="text" maxlength="9" id="m_hd_dapnlSegurTomLf_daContacts_txtTelemovel_xnTxt" class="FormElementoWhite" onkeypress="" value="<%= @user.telemovel %>">
                                                               </td>
                                                             </tr>
                                                             <tr>
@@ -657,7 +660,7 @@
                                                                 </span>
                                                               </td>
                                                               <td>
-                                                                <input name="m$hd$dapnlSegurTomLf$daContacts$txtEmail$xnTxt" type="text" maxlength="80" id="m_hd_dapnlSegurTomLf_daContacts_txtEmail_xnTxt" class="FormElementoWhite">
+                                                                <input name="m$hd$dapnlSegurTomLf$daContacts$txtEmail$xnTxt" type="text" maxlength="80" id="m_hd_dapnlSegurTomLf_daContacts_txtEmail_xnTxt" class="FormElementoWhite" value="<%= @user.mail %>">
 
                                                               </td>
                                                             </tr>
@@ -690,7 +693,7 @@
                                                         <td>
                                                           <span class="label"><span id="m_hd_dapnlSegurTomLf_txtNIF_lblCpt_lbl">NIF:&nbsp;</span></span></td>
                                                         <td>
-                                                          <input name="m$hd$dapnlSegurTomLf$txtNIF$xnTxt" type="text" maxlength="9" id="m_hd_dapnlSegurTomLf_txtNIF_xnTxt" class="FormElementoWhite" onkeypress="">
+                                                          <input name="m$hd$dapnlSegurTomLf$txtNIF$xnTxt" type="text" maxlength="9" id="m_hd_dapnlSegurTomLf_txtNIF_xnTxt" class="FormElementoWhite" onkeypress="" value="<%= @user.nif %>">
 
                                                         </td>
                                                       </tr>

@@ -1,4 +1,4 @@
-
+<body class="page page-index">
 <div id="navigation" class="wrapper">
 
   <div class="navbar  navbar-static-top">
@@ -10,7 +10,7 @@
           <div class="span8">
             <!--branding/logo-->
             <a class="brand" href="/" title="Home" style="margin-top: 0px;">
-              <img src="/assets/logo.png"/>
+              <img src="assets/logo.png"/>
             </a>
             <div class="slogan" id="top">Cartão Amigável</div>
           </div>
@@ -60,85 +60,168 @@
 
           <!--main navigation-->
           <ul class="nav" id="main-menu">
-            <li class="top"><a href="/#top"><i class="icon-home hidden-phone"></i><span class="visible-phone">Início</span></a></li>
-            <li><a href="/#como" class="menu-item">Como Funciona?</a></li>
-            <li><a href="/#preco" class="menu-item">Quanto Custa?</a></li>
-            <li><a href="#quem" class="menu-item">Quem pode aderir?</a></li>
+            <li class="top"><a href="#top"><i class="icon-home hidden-phone"></i><span class="visible-phone">Início</span></a></li>
+            <li><a href="#como" class="menu-item">Como?</a></li>
+            <li><a href="#preco" class="menu-item">Quanto?</a></li>
+            <li><a href="#quem" class="menu-item">Quem?</a></li>
             </li>
             <% if user_signed_in?  %>
-                <li class="menu-item"><a href="#" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">Formulário</a></li>
-                <li class="menu-item"><a href="#" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">Perfil de <% current_user.email %></a></li>
-
-          <% end %>
+                <li class="menu-item"><a href="/formulario" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">Formulário</a></li>
+                <li class="menu-item"><a href="#" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">Perfil de <%= @user.nome %></a></li>
+            <% end %>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
   </div>
 </div>
+
 <div id="content">
   <div class="container">
     <div class="block">
       <div class="span12">
         <div class="well">
-            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-              <%= devise_error_messages! %>
+          <table>
+            <tbody>
 
-              <div><%= f.label :email %><br />
-              <%= f.email_field :email, :autofocus => true %></div>
+                <tr>
+                    <td>
+                        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                        <%= devise_error_messages! %>
+                    </td>
+                </tr>
+                  <tr>
+                    <td>
+                      <%= f.label :tipo,"Individual" %>
+                    </td>
+                    <td>
+                      <%= f.radio_button(:tipo,"Individual")  %>
+                    </td>
+                    <td>
+                      <%= f.label :tipo,"Colectiva" %>
+                    </td>
+                    <td>
+                      <%= f.radio_button(:tipo,"Colectiva")  %>
+                    </td>
+                  </tr>
+                <tr>
+                    <td>
+                        <%= f.label :nif %>
+                    </td>
+                    <td>
+                        <%= f.text_field :nif %>
+                    </td>
+                    <td>
+                        <%= f.label :email %>
+                    </td>
+                    <td>
+                        <%= f.email_field :email, :autofocus => true %>
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                      <%= f.label :password %>
+                  </td>
+                  <td>
+                      <%= f.password_field :password %>
+                  </td>
 
-              <div><%= f.label :password %><br />
-              <%= f.password_field :password %></div>
+                  <td>
+                      <%= f.label :password_confirmation %>
+                  </td>
+                  <td>
+                      <%= f.password_field :password_confirmation %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= f.label :nome %>
+                  </td>
+                  <td>
+                    <%= f.text_field :nome %>
+                  </td>
+                  <td>
+                    <%= f.label :apelido %>
+                  </td>
+                  <td>
+                    <%= f.text_field :apelido %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= f.label :morada %>
+                  </td>
+                  <td>
+                    <%= f.text_field :morada %>
+                  </td>
+                  <td>
+                    <%= f.label :localidade %>
+                  </td>
+                  <td>
+                    <%= f.text_field :localidade %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= f.label :codpostal %>
+                  </td>
+                  <td>
+                    <%= f.text_field :codpostal %>
+                  </td>
+                <td>
+                    País:
+                  </td>
+                  <td>
+                        <select>
+                            <option value=""></option>
+                            <% Country.all do |c| %>
+                                <option value="<%= c.country %>"><%= c.country %></option>
+                            <%end %>
+                        </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                      <%= f.label :tipocontacto %>
+                  </td>
+                  <td>
+                      <%= f.text_field :tipocontacto %>
+                  </td>
+                  <td>
+                      <%= f.label :telefone %>
+                  </td>
+                  <td>
+                       <%= f.text_field :telefone %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                      <%= f.label :telemovel %>
+                  </td>
+                  <td>
+                      <%= f.text_field :telemovel %>
+                  </td>
+                  <td>
+                      <%= f.label :mail %>
+                  </td>
+                  <td>
+                      <%= f.text_field :mail %>
+                  </td>
+                </tr>
 
-              <div><%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation %></div>
-
-              <div><%= f.label :tipo %><br />
-                <%= f.check_box :tipo %></div>
-
-              <div><%= f.label :nome %><br />
-                <%= f.text_field :nome %></div>
-
-              <div><%= f.label :apelido %><br />
-                <%= f.text_field :apelido %></div>
-
-              <div><%= f.label :morada %><br />
-                <%= f.text_field :morada %></div>
-
-              <div><%= f.label :localidade %><br />
-                <%= f.text_field :localidade %></div>
-
-              <div><%= f.label :codpostal %><br />
-                <%= f.text_field :codpostal %></div>
-
-              <div>
-                <select>
-                    <option value=""></option>
-                    <% Country.all do |c| %>
-                        <option value="<%= c.country %>"><%= c.country %></option>
-                    <%end %>
-                </select>
-              </div>
-
-              <div><%= f.label :tipocontacto %><br />
-                <%= f.text_field :tipocontacto %></div>
-
-              <div><%= f.label :telefone %><br />
-                <%= f.text_field :telefone %></div>
-
-              <div><%= f.label :telemovel %><br />
-                <%= f.text_field :telemovel %></div>
-
-              <div><%= f.label :mail %><br />
-                <%= f.text_field :mail %></div>
-
-              <div><%= f.label :nif %><br />
-                <%= f.text_field :nif %></div>
-
-              <div><%= f.submit "Sign up" %></div>
-            <% end %>
-
-            <%= render "devise/shared/links" %>
+                <tr>
+                  <td>
+                      <%= f.submit "Sign up" %>
+                    <% end %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= render "devise/shared/links" %>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

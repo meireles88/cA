@@ -66,8 +66,8 @@
             <li><a href="#quem" class="menu-item">Quem?</a></li>
             </li>
             <% if user_signed_in?  %>
-                <li class="menu-item"><a href="/formulario" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">Formulário</a></li>
-                <li class="menu-item"><a href="#" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">Perfil de <%= @user.nome %></a></li>
+                <li class="menu-item"><a href="/formulario#formamigavel" class="menu-item">Formulário</a></li>
+                <li class="menu-item"><a href="/perfil" class="menu-item">Perfil de <%= @user.nome %></a></li>
           <% end %>
           </ul>
         </div><!--/.nav-collapse -->
@@ -78,32 +78,7 @@
 
 <div class="hero" id="highlighted">
   <div class="inner">
-    <!--Flexslider Showshow-->
-    <section class="flexslider-wrapper container">
-      <div class="flexslider" data-slidernav="auto" data-transition="slide">
-        <!--The Slides-->
-        <div class="slides">
-
-          <!--Slide #1 with caption-->
-          <div class="slide row-fluid">
-            <div class="span7"><img src="assets/slides/slide1.png" alt="Slide 1" /></div>
-            <div class="span5 caption">
-              <h2>Cartão Amigável</h2>
-              <p>Descomplique o seu acidente!</p>
-              <a href="/register" class="btn btn-large btn-primary">Inscreva-se já!</a>
-            </div>
-          </div>
-
-          <!--Slide #2 straight image 1170px wide x 390px high-->
-          <div class="slide row-fluid">
-            <img src="assets/slides/slide2.png" alt="Slide 2" />
-          </div>
-
-          <!--Slide #3 & so on below-->
-
-        </div>
-      </div>
-    </section>
+    <img src="assets/slides/slide2.png" alt="Slide 2">
   </div>
 </div>
 

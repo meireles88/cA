@@ -61,13 +61,13 @@
           <!--main navigation-->
           <ul class="nav" id="main-menu">
             <li class="top"><a href="/"><i class="icon-home hidden-phone"></i><span class="visible-phone">Início</span></a></li>
-            <li><a href="#como" class="menu-item">Como?</a></li>
-            <li><a href="#preco" class="menu-item">Quanto?</a></li>
-            <li><a href="#quem" class="menu-item">Quem?</a></li>
+            <li><a href="/#como" class="menu-item">Como?</a></li>
+            <li><a href="/#preco" class="menu-item">Quanto?</a></li>
+            <li><a href="/#quem" class="menu-item">Quem?</a></li>
             </li>
             <% if user_signed_in?  %>
-                <li class="menu-item"><a href="/formulario" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">Formulário</a></li>
-                <li class="menu-item"><a href="#" class="dropdown-toggle" id="pages-drop" data-toggle="dropdown">Perfil de <%= @user.nome %></a></li>
+                <li class="menu-item"><a href="/formulario#formamigavel" class="menu-item">Formulário</a></li>
+                <li class="menu-item"><a href="/perfil" class="menu-item">Perfil de <%= @user.nome %></a></li>
             <% end %>
           </ul>
         </div><!--/.nav-collapse -->
@@ -84,11 +84,9 @@
           <table>
             <tbody>
 
-            <tr>
-              <td>
+            
                 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-                    </td>
-                    </tr>
+              
                     <tr>
                       <td>
                         <%= f.label :tipo,"Individual" %>
@@ -137,13 +135,13 @@
                         <%= f.label :nome %>
                       </td>
                       <td>
-                        <%= f.text_field :nome ,:autofocus => true%>
+                        <%= f.text_field :nome %>
                       </td>
                       <td>
                         <%= f.label :apelido %>
                       </td>
                       <td>
-                        <%= f.text_field :apelido ,:autofocus => true%>
+                        <%= f.text_field :apelido %>
                       </td>
                     </tr>
                     <tr>
@@ -151,13 +149,13 @@
                         <%= f.label :morada %>
                       </td>
                       <td>
-                        <%= f.text_field :morada ,:autofocus => true%>
+                        <%= f.text_field :morada %>
                       </td>
                       <td>
                         <%= f.label :localidade %>
                       </td>
                       <td>
-                        <%= f.text_field :localidade ,:autofocus => true%>
+                        <%= f.text_field :localidade %>
                       </td>
                     </tr>
                     <tr>
@@ -165,7 +163,7 @@
                         <%= f.label :codpostal %>
                       </td>
                       <td>
-                        <%= f.text_field :codpostal ,:autofocus => true%>
+                        <%= f.text_field :codpostal %>
                       </td>
                       <td>
                         País:
@@ -194,7 +192,7 @@
                         <%= f.label :telefone %>
                       </td>
                       <td>
-                        <%= f.text_field :telefone ,:autofocus => true%>
+                        <%= f.text_field :telefone %>
                       </td>
                     </tr>
                     <tr>
@@ -202,25 +200,25 @@
                         <%= f.label :telemovel %>
                       </td>
                       <td>
-                        <%= f.text_field :telemovel ,:autofocus => true%>
+                        <%= f.text_field :telemovel %>
                       </td>
                       <td>
-                        <%= f.label :mail %>
+                        <%= f.label :email %>
                       </td>
                       <td>
-                        <%= f.text_field :mail ,:autofocus => true%>
+                        <%= f.text_field :email %>
                       </td>
                     </tr>
 
                     <tr>
-                        <td>
-                            <%= f.submit "Update" %>
-                            <% end %>
-                        </td>
-                        <td>
-                          <%= button_to "Cancelar conta", registration_path(resource_name), :data => { :confirm => "Tem a certeza?" }, :method => :delete %>
-                        </td>
-                    </tr>
+                      <td>
+                        <%= f.submit "Update" %>
+                <% end %>
+                </td>
+                <td>
+                  <%= button_to "Cancelar conta", registration_path(resource_name), :data => { :confirm => "Tem a certeza?" }, :method => :delete %>
+                </td>
+                </tr>
                 <tr>
                   <td>
                     <%= render "devise/shared/links" %>

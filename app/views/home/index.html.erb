@@ -1,80 +1,4 @@
-<body class="page page-index">
-<div id="navigation" class="wrapper">
-
-  <div class="navbar  navbar-static-top">
-
-    <!--Header & Branding region-->
-    <div class="header">
-      <div class="header-inner container">
-        <div class="row-fluid">
-          <div class="span8">
-            <!--branding/logo-->
-            <a class="brand" href="/" title="Home" style="margin-top: 0px;">
-              <img src="assets/logo.png"/>
-            </a>
-            <div class="slogan" id="top">Cartão Amigável</div>
-          </div>
-
-          <!--header rightside-->
-          <div class="span4">
-
-            <!--social media icons-->
-            <div class="social-media pull-right">
-              <!--@todo: replace with company social media details-->
-              <a href="http://www.twitter.com"><i class="icon-twitter"></i></a>
-              <a href="http://www.facebook.com"><i class="icon-facebook"></i></a>
-              <a href="http://www.linkedin.com"><i class="icon-linkedin"></i></a>
-              <a href="http://plus.google.com"><i class="icon-google-plus"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="navbar-inner">
-
-        <!--mobile collapse menu button-->
-        <a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-
-        <!--user menu-->
-        <ul class="nav user-menu pull-right">
-          <% if user_signed_in?  %>   <a href="/logout" class="btn btn-primary">Logout</a>   <% else %>
-          <li><a href="/register" class="btn btn-primary signup">Inscrição</a></li>
-          <li class="dropdown">
-            <a href="login.htm" class="btn btn-primary dropdown-toggle login" id="login-drop" data-toggle="dropdown">Entrar</a>
-            <div class="dropdown-menu" role="menu" aria-labelledby="login-drop">
-
-              <%= render 'shared/login' %>
-                </div>
-          </li>
-              <% end %>
-        </ul>
-
-        <!--everything within this div is collapsed on mobile-->
-        <div class="nav-collapse collapse">
-
-          <!--main navigation-->
-          <ul class="nav" id="main-menu">
-            <li class="top"><a href="#top"><i class="icon-home hidden-phone"></i><span class="visible-phone">Início</span></a></li>
-            <li><a href="#como" class="menu-item">Como?</a></li>
-            <li><a href="#preco" class="menu-item">Quanto?</a></li>
-            <li><a href="#quem" class="menu-item">Quem?</a></li>
-            </li>
-            <% if user_signed_in?  %>
-                <li class="menu-item"><a href="/formulario#formamigavel" class="menu-item">Formulário</a></li>
-                <li class="menu-item"><a href="/perfil" class="menu-item">Perfil de <%= @user.nome %></a></li>
-          <% end %>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'shared/header' %>
 
 <div class="hero" id="highlighted">
   <div class="inner">
@@ -87,23 +11,52 @@
     <!-- Services -->
     <div class="block features">
       <h2 class="title-divider" id="como"><span>Como <span class="de-em">Funciona?</span></span> <small>Breve explicação sobre o Cartão Amigável.</small></h2>
-      <ul class="thumbnails">
-        <li class="span4">
-          <a href="/register"><img src="assets/features/feature-1.png" alt="Feature 1" /></a>
-          <h3 class="title"><a href="features.htm">Inscrever-se <span class="de-em"></span></a></h3>
-          <p>Rhoncus adipiscing, magna integer cursus augue eros lacus porttitor magna. Dictumst, odio! Elementum tortor sociis in eu dis dictumst pulvinar lorem nec aliquam a nascetur.</p>
-        </li>
-
-        <li class="span4">
-          <a href="/login"><img src="assets/features/feature-2.png" alt="Feature 2" /></a>
-          <h3 class="title"><a href="features.htm">Logar-se <span class="de-em"></span></a></h3>
-          <p>Rhoncus adipiscing, magna integer cursus augue eros lacus porttitor magna. Dictumst, odio! Elementum tortor sociis in eu dis dictumst pulvinar lorem nec aliquam a nascetur.</p>
-        </li>
-
-        <li class="span4">
+      <ul>
+        <li>
           <a href="/login"><img src="assets/features/feature-3.png" alt="Feature 3" /></a>
-          <h3 class="title"><a href="features.htm">Usar <span class="de-em"></span></a></h3>
-          <p>Rhoncus adipiscing, magna integer cursus augue eros lacus porttitor magna. Dictumst, odio! Elementum tortor sociis in eu dis dictumst pulvinar lorem nec aliquam a nascetur.</p>
+          <p>Plataforma Cartão Amigável e Declaração Amigável é um serviço de dados online, de apoio 
+
+ao condutor, com a emissão de um Cartão Amigável, que contem os dados do condutor e 
+
+do veiculo, bem como a apólice do seguro, em formato smart card e outros formatos com o 
+
+referido conteúdo de dados, podendo ser ou não, também destacáveis com a opção de poder 
+
+seleccionar veiculo A e Veiculo B tendo os dois tipos para troca no momento do acidente, com 
+
+as opções para quem possua telemóveis actuais e com novas aplicações, (ainda em fase de 
+
+desenvolvimento) poderá fazer a leitura com o seu telemóvel que enviará para o site de apoio ao 
+
+serviço.
+
+Os site contem os formulários electrónicos necessários para o registo e preenchimento, como a 
+
+declaração amigável, onde os intervenientes ficam obrigados conforme a lei, ao preenchimento 
+
+do documento da declaração amigável, em formato digital, da mesma forma que o documento até 
+
+agora conhecido, com todos os dados recolhidos no momento da colisão podendo ser impresso 
+
+ou enviar às suas seguradoras via electrónica. 
+
+A Plataforma Cartão Amigável com a sua funcionalidade e facilidade do serviço, vem trazer a 
+
+todos os aderentes e utilizadores de automóveis, quando acidentados, uma enorme rapidez na 
+
+resolução do conflito no momento do acidente, evitando a demora que é, o preenchimento dos 
+
+modelos conhecidos de declaração amigável, com os dados do veiculo, do seguro, do condutor, 
+
+nomes, números, onde por vezes também aos locais de colisão são confusos a nível de transito, 
+
+elevando o nervosismo, ou ainda de noite com fraca visibilidade para poder preencher os quadros 
+
+do documento. Com simplicidade do Cartão Amigável, beneficiam os envolvidos e todos os 
+
+restantes utentes da via que circulam nessa área, que ficaram muito menos tempo bloqueados no 
+
+trânsito devido á demora na resolução do acidente.</p>
         </li>
       </ul>
     </div>
@@ -115,7 +68,7 @@
 
         <div class="span12">
           <div class="well">
-            <h3 class="title">Grátis <span class="fancy"></span></h3>
+            <h3 class="title">Grátis* <span class="fancy"></span></h3>
             <p class="price"><span class="currency">€</span> <span class="digits">0<span>.00</span></span> <span class="term"></span></p>
             <ul class="unstyled points">
               <li>Veículo </li>
@@ -126,20 +79,18 @@
             <a href="/register" class="btn btn-primary">Inscreva-se!</a>
           </div>
         </div>
-      </div>
-
-      <div class="row-fluid">
-        <!-- Plan features -->
-        <div class="well well-mini pull-center">
-          <h4 class="inline-el pad-right"><span> <span class="de-em"></span></span></h4>
-          <p class="inline-el pad-left muted"> <span class="spacer"></span>  <span class="spacer"></span>  <span class="spacer"></span>  <span class="spacer"></span> </p>
-        </div>
+        <p>* A sua adesão tem um custo anual, logo que seja confirmado o interesse pela sua permanência nos serviços, após o período gratuito, será enviado o Cartão Amigável para o endereço pedido. Aproveite e seja um dos primeiros a aderir ao Cartão Amigável, ainda em fase experimental e gratuito por 30 dias, com a possibilidade de convidar novos clientes e obter ganhos adicionais, que serão divulgados brevemente.<br />
+          Cartão Amigável<br />
+          Descomplica o acidente!
+      </p>
       </div>
     </div>
 
     <!--Customer testimonial-->
     <div class="block testimonials margin-top-large">
       <h2 class="title-divider" id="quem"><span>Quem <span class="de-em">pode aderir?</span></span> <small>Todos</small></h2>
+      <p>O serviços da plataforma Cartão Amigável e Declaração Amigável são dirigidos a todos os automobilistas residentes em todos os continentes e que pode ser usado com toda a facilidade e simplicidade, de forma a descomplicar o acidente automóvel.Os aderentes ao cartão amigável são obrigados a um registo prévio no site, onde terão de garantir a sua identidade e sempre actualizada de forma a credibilizar perante terceiros a sua veracidade de seguro, carta condução e registo de propriedade.
+        </p>
     </div>
 
   </div>
@@ -175,10 +126,10 @@
       <div class="span6 col">
         <div class="block">
           <h3>Sobre nós</h3>
-          <p></p>
+          <p>Somos uma empresa de base tecnológica em fase de encubação e lançamento de uma plataforma online - Cartão Amigável - Declaração Amigável, que é um conceito pensado e criado para simplificar todo o processo relacionado com acidentes de viação, utilizando as novas tecnologias, de forma a tornar mais comodo o processo de preenchimento Declaração Amigável bem como a rápida identificação dos automobilistas envolvidos, e ainda outros serviços de apoio. O conceito é baseado na emissão de um cartão, com diversos dados relacionados com o utente, de forma a poder ser apresentado e trocado entre condutores com a máxima garantia e confiança. É uma plataforma com capacidades únicas e inovadoras, que surge no momento em que todos necessitam de descomplicar muitas das regras, as quais podem ser resolvidas agora com diversas funcionalidades disponibilizadas, esperando que este contributo venha trazer grandes melhorias, na vida de todos os utilizadores de veículos motorizados e não só, que circulam diariamente, nas ruas e estradas, em todos os continentes.A equipa do Cartão Amigável e Declaração Amigável são profissionais com experiência em áreas de informática, electrónica e gestão de base de dados, gestão e manutenção de plataformas online. As características do grupo são a persistência, espírito empreendedor, motivação, sigilo, ética empresarial e capacidade de trabalho são fundamentais, para a presente e futura equipa da Plataforma Cartão Amigável Declaração Amigável.
+          </p>
         </div>
       </div>
-
     </div>
 
     <div class="row-fluid">

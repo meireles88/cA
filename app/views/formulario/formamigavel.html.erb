@@ -1,83 +1,6 @@
-<%= stylesheet_link_tag "participacoes" %>
+<%= render 'shared/header' %>
 
-<body class="page page-index">
-<div id="navigation" class="wrapper">
-
-  <div class="navbar  navbar-static-top">
-
-    <!--Header & Branding region-->
-    <div class="header">
-      <div class="header-inner container">
-        <div class="row-fluid">
-          <div class="span8">
-            <!--branding/logo-->
-            <a class="brand" href="/" title="Home" style="margin-top: 0px;">
-              <img src="assets/logo.png"/>
-            </a>
-            <div class="slogan" id="top">Cartão Amigável</div>
-          </div>
-
-          <!--header rightside-->
-          <div class="span4">
-
-            <!--social media icons-->
-            <div class="social-media pull-right">
-              <!--@todo: replace with company social media details-->
-              <a href="http://www.twitter.com"><i class="icon-twitter"></i></a>
-              <a href="http://www.facebook.com"><i class="icon-facebook"></i></a>
-              <a href="http://www.linkedin.com"><i class="icon-linkedin"></i></a>
-              <a href="http://plus.google.com"><i class="icon-google-plus"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="navbar-inner">
-
-        <!--mobile collapse menu button-->
-        <a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-
-        <!--user menu-->
-        <ul class="nav user-menu pull-right">
-          <% if user_signed_in?  %>   <a href="/logout" class="btn btn-primary">Logout</a>   <% else %>
-              <li><a href="/register" class="btn btn-primary signup">Inscrição</a></li>
-              <li class="dropdown">
-                <a href="login.htm" class="btn btn-primary dropdown-toggle login" id="login-drop" data-toggle="dropdown">Entrar</a>
-                <div class="dropdown-menu" role="menu" aria-labelledby="login-drop">
-
-                  <%= render 'shared/login' %>
-                </div>
-              </li>
-          <% end %>
-        </ul>
-
-        <!--everything within this div is collapsed on mobile-->
-        <div class="nav-collapse collapse">
-
-          <!--main navigation-->
-          <ul class="nav" id="main-menu">
-            <li class="top"><a href="#top"><i class="icon-home hidden-phone"></i><span class="visible-phone">Início</span></a></li>
-            <li><a href="#como" class="menu-item">Como?</a></li>
-            <li><a href="#preco" class="menu-item">Quanto?</a></li>
-            <li><a href="#quem" class="menu-item">Quem?</a></li>
-            </li>
-            <% if user_signed_in?  %>
-                <li class="menu-item"><a href="/formulario#formamigavel" class="menu-item">Formulário</a></li>
-                <li class="menu-item"><a href="/perfil" class="menu-item">Perfil de <%= @user.nome %></a></li>
-            <% end %>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-  </div>
-</div>
-    <div id="content">
+<div id="content">
         <div class="container" style="width: 97%;">
             <div>
                 <div style="text-align: right;">Página 1 de 2</div>
@@ -103,11 +26,10 @@
                       <div class="panelTableContent">
                         <div class="pnlDivfields">
                             <span class="label">
-                              <span id="m_hd_dropdTipoAcidente_lblCpt_lbl">Tipificação do acidente:&nbsp;
+                              <span id="tipoAcidente">Tipificação do acidente:&nbsp;
                               </span>
-                              <img id="m_hd_dropdTipoAcidente_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
                             </span>
-                            <select name="" id="" class="FormElementoWhite" onchange="">
+                            <select name="" id="" class="FormElementoWhite" required>
                               <option selected="selected" value=""></option>
                               <option value="A00003">Acidente de Viação</option>
                               <option value="A00018">Atropelamento</option>
@@ -117,31 +39,29 @@
                               <option value="A00125">Quebra de vidros</option>
 
                             </select>
-                            <img id="help1" src="./form_files/questionMark.png" style="vertical-align:top;" alt="?" title="Seleccionar na lista apresentada a circunstância que melhor se adequa à dinâmica do acidente.">
+                            
                         </div>
                         <div>
                             <span class="label">
-                              <span id="m_hd_dropdNVeiculosEnv_lblCpt_lbl">Nº veículos envolvidos:&nbsp;
+                              <span id="num_veiculos">Nº veículos envolvidos:&nbsp;
                               </span>
-                              <img id="m_hd_dropdNVeiculosEnv_lblCpt_iR" title="Campo de preenchimento obrigatório" src="" alt="*" style="border-width:0px;">
                             </span>
-                            <select name="m$hd$dropdNVeiculosEnv$xnDropD" id="m_hd_dropdNVeiculosEnv_xnDropD" class="FormElementoWhite" onchange="">
+                            <select name="veiculos" id="veiculo" class="FormElementoWhite" required>
                               <option selected="selected" value=""></option>
                               <option value="1">1 Veiculo</option>
                               <option value="2">2 Veiculos</option>
                             </select>
-                              <img src="./form_files/questionMark.png" alt="?" style="vertical-align: top;" title="Indicar o n.º de veículos que foram intervenientes no sinistro."/>
+                              
                         </div>
                           <div class="pnlDivfields">
 
 
                             <span class="label">
-                              <span id="m_hd_dropdVeiculoPart_lblCpt_lbl">Veículo do participante:&nbsp;
+                              <span id="veiculoParticipante">Veículo do participante:&nbsp;
                               </span>
-                              <img id="m_hd_dropdVeiculoPart_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
                             </span>
 
-                            <select name="m$hd$dropdVeiculoPart$xnDropD" id="m_hd_dropdVeiculoPart_xnDropD" class="FormElementoWhite" onchange="">
+                            <select name="veiculo" id="m_hd_dropdVeiculoPart_xnDropD" class="FormElementoWhite" required>
                               <option selected="selected" value=""></option>
                               <option value="A">Veiculo A</option>
                               <option value="B">Veiculo B</option>
@@ -151,12 +71,12 @@
                       <div style="white-space: nowrap;">
 
                         <span class="label">
-                          <span id="m_hd_dropdTpParticipante_lblCpt_lbl">Efectua a participação na qualidade de:&nbsp;
+                          <span id="participanteE">Efectua a participação na qualidade de:&nbsp;
                           </span>
-                          <img id="m_hd_dropdTpParticipante_lblCpt_iR" title="Campo de preenchimento obrigatório" src="" alt="*" style="border-width:0px;">
+                          
                         </span>
 
-                        <select name="m$hd$dropdTpParticipante$xnDropD" id="m_hd_dropdTpParticipante_xnDropD" class="FormElementoWhite" onchange="">
+                        <select name="participante" id="m_hd_dropdTpParticipante_xnDropD" class="FormElementoWhite" required>
                           <option selected="selected" value=""></option>
                           <option value="04">Mediador</option>
                           <option value="01">Peão</option>
@@ -201,7 +121,6 @@
                                         <span class="label">
                                           <span id="m_hd_dtAcidente_lblCpt_lbl">Data do acidente:&nbsp;
                                           </span>
-                                          <img id="m_hd_dtAcidente_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
                                         </span>
 
                                         <input name="m$hd$dtAcidente$xnTxDt" type="text" maxlength="10" id="m_hd_dtAcidente_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
@@ -215,7 +134,6 @@
                                         <span class="label">
                                           <span id="m_hd_tmHoraAcidente_lblCpt_lbl">Hora:&nbsp;
                                           </span>
-                                          <img id="m_hd_tmHoraAcidente_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
                                         </span>
 
                                         <input name="m$hd$tmHoraAcidente$xnTxTH" type="text" maxlength="2" size="2" id="m_hd_tmHoraAcidente_xnTxTH" class="FormElementoWhite numeric" onchange="" onblur=""> :
@@ -255,7 +173,6 @@
                                     <span class="label">
                                       <span id="m_hd_dropdPais_lblCpt_lbl">Pais:&nbsp;
                                       </span>
-                                      <img id="m_hd_dropdPais_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
                                     </span>
                                     <select name="m$hd$dropdPais$xnDropD" id="m_hd_dropdPais_xnDropD" class="FormElementoWhite" onchange="">
                                         <option value=""></option>
@@ -297,7 +214,6 @@
                                         <span class="label">
                                           <span id="m_hd_dropdConcelho_lblCpt_lbl">Concelho:&nbsp;
                                           </span>
-                                          <img id="m_hd_dropdConcelho_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
                                         </span>
                                         <select name="m$hd$dropdConcelho$xnDropD" id="m_hd_dropdConcelho_xnDropD" class="FormElementoWhite">
                                             <option value=""></option>
@@ -313,10 +229,7 @@
                                               </span>
                                             </span>
 
-                                          <input name="m$hd$txLocal$xnTxt" type="text" id="m_hd_txLocal_xnTxt" class="FormElementoWhite" style="width:180px;">
-
-                                          <img src="./form_files/questionMark.png" title="Indicar o nome da via onde ocorreu o sinistro (ex: A5, sentido Lisboa/Cascais, km 9)." alt="?" style="vertical-align: top;">
-                                        </div>
+                                          <input name="m$hd$txLocal$xnTxt" type="text" id="m_hd_txLocal_xnTxt" class="FormElementoWhite" style="width:180px;">                                        </div>
                             </div>
                         </div>
                     </td>
@@ -353,7 +266,6 @@
                                 <td style="width:132px">
                                   <span class="label"><span id="m_hd_dropdHouveFeridos_lblCpt_lbl">Feridos, mesmo ligeiros:&nbsp;
                                   </span>
-                                    <img id="m_hd_dropdHouveFeridos_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
                                   </span>
                                 </td>
                                 <td>
@@ -372,7 +284,6 @@
                                   <span class="label">
                                     <span id="m_hd_dropdNumFeridos_lblCpt_lbl">Número de feridos:&nbsp;
                                     </span>
-                                    <img id="m_hd_dropdNumFeridos_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
                                   </span>
                                 </td>
                                 <td colspan="3">
@@ -443,7 +354,7 @@
 
 
 
-                      <span class="label"><span id="m_hd_dropdHouveTestemunhas_lblCpt_lbl">Houve testemunhas?&nbsp;</span><img id="m_hd_dropdHouveTestemunhas_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span>
+                      <span class="label"><span id="m_hd_dropdHouveTestemunhas_lblCpt_lbl">Houve testemunhas?&nbsp;</span></span>
 
                       <select name="m$hd$dropdHouveTestemunhas$xnDropD" id="m_hd_dropdHouveTestemunhas_xnDropD" class="FormElementoWhite" onchange="">
                         <option selected="selected" value=""></option>
@@ -452,14 +363,12 @@
 
                       </select>
 
-
-                      <img src="./form_files/questionMark.png" style="vertical-align:top;" alt="?" title="Indicar os nomes, moradas e contactos telefónicos de eventuais testemunhas que tenham efectivamente presenciado o sinistro, pois poderão ser meios de prova fundamentais no apuramento das circunstâncias em que ocorreu o evento.">
                     </div>
                     <div>
 
 
 
-                      <span class="label"><span id="m_hd_dropdNumTestemunhas_lblCpt_lbl">Número de testemunhas:&nbsp;</span><img id="m_hd_dropdNumTestemunhas_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span>
+                      <span class="label"><span id="m_hd_dropdNumTestemunhas_lblCpt_lbl">Número de testemunhas:&nbsp;</span></span>
 
                       <select name="m$hd$dropdNumTestemunhas$xnDropD" id="m_hd_dropdNumTestemunhas_xnDropD" class="FormElementoWhite">
                         <option selected="selected" value=""></option>
@@ -481,7 +390,7 @@
             <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:5px">
                 <tbody>
                     <tr>
-                        <td id="tdClassVeiculoA" class="leftContainer">
+                      <td id="tdClassVeiculoA" class="leftContainer">
                         <div style="color: White;" class="panelTitle center">VEÍCULO A
                         </div>
                         <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -512,10 +421,16 @@
                                                       <tbody>
                                                         <tr>
                                                             <td>
-                                                              <span class="radio"><label for="m_hd_dapnlSegurTomLf_rbEntidadeIndividual">Individual</label><input id="m_hd_dapnlSegurTomLf_rbEntidadeIndividual" type="radio" name="m$hd$dapnlSegurTomLf$Entidade" value="rbEntidadeIndividual" checked="checked" onclick=""></span>
+                                                              <span class="radio"><label for="m_hd_dapnlSegurTomLf_rbEntidadeIndividual">Individual</label>
+                                                            </td>
+                                                            <td> 
+                                                                <input id="m_hd_dapnlSegurTomLf_rbEntidadeIndividual" type="radio" name="m$hd$dapnlSegurTomLf$Entidade" value="rbEntidadeIndividual" checked="checked" onclick=""></span>
                                                             </td>
                                                             <td>
-                                                              <span class="radio"><label for="m_hd_dapnlSegurTomLf_rbEntidadeColetiva">Coletiva</label><input id="m_hd_dapnlSegurTomLf_rbEntidadeColetiva" type="radio" name="m$hd$dapnlSegurTomLf$Entidade" value="rbEntidadeColetiva" onclick=""></span>
+                                                              <span class="radio"><label for="m_hd_dapnlSegurTomLf_rbEntidadeColetiva">Coletiva</label>
+                                                            </td>
+                                                            <td> 
+                                                            <input id="m_hd_dapnlSegurTomLf_rbEntidadeColetiva" type="radio" name="m$hd$dapnlSegurTomLf$Entidade" value="rbEntidadeColetiva" onclick=""></span>
                                                             </td>
                                                         </tr>
                                                       </tbody>
@@ -526,7 +441,7 @@
                                                             <tr>
                                                               <td class="lblTitle90">
                                                                 <span class="label"><span id="m_hd_dapnlSegurTomLf_txtApelido_lblCpt_lbl">APELIDO:&nbsp;
-                                                                </span><img id="m_hd_dapnlSegurTomLf_txtApelido_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
+                                                                </span>
                                                                 </span>
                                                               </td>
                                                               <td>
@@ -541,7 +456,7 @@
                                                         <tr>
                                                         <td class="lblTitle90">
                                                           <span class="label"><span id="m_hd_dapnlSegurTomLf_txtNome_lblCpt_lbl">Nome:&nbsp;
-                                                          </span><img id="m_hd_dapnlSegurTomLf_txtNome_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
+                                                          </span>
                                                           </span>
                                                         </td>
                                                         <td>
@@ -558,7 +473,7 @@
                                                                     <span class="label">
                                                                       <span id="m_hd_dapnlSegurTomLf_daContacts_txtMorada_lblCpt_lbl">Morada:&nbsp;
                                                                       </span>
-                                                                      <img id="m_hd_dapnlSegurTomLf_daContacts_txtMorada_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
+                                                                      
                                                                     </span>
                                                                 </td>
                                                                 <td>
@@ -570,7 +485,7 @@
                                                                     <span class="label">
                                                                       <span id="m_hd_dapnlSegurTomLf_daContacts_txtLocalidade_lblCpt_lbl">Localidade:&nbsp;
                                                                       </span>
-                                                                      <img id="m_hd_dapnlSegurTomLf_daContacts_txtLocalidade_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
+                                                                      
                                                                     </span>
                                                                 </td>
                                                                 <td>
@@ -582,12 +497,12 @@
                                                                 <span class="label">
                                                                   <span id="m_hd_dapnlSegurTomLf_daContacts_txtCodPostal_lblCpt_lbl">Código Postal:&nbsp;
                                                                   </span>
-                                                                  <img id="m_hd_dapnlSegurTomLf_daContacts_txtCodPostal_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
+                                                                  
                                                                 </span>
                                                                 </td>
                                                                 <td>
                                                                     
-                                                                    <input name="m$hd$dapnlSegurTomLf$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlSegurTomLf_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" style="width:98%;" value="<%= @user.codpostal %>">
+                                                                    <input name="m$hd$dapnlSegurTomLf$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlSegurTomLf_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite"  value="<%= @user.codpostal %>">
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -615,11 +530,11 @@
                                                                 <span class="label">
                                                                   <span id="m_hd_dapnlSegurTomLf_daContacts_dropMeioContacto_lblCpt_lbl">Meio contacto preferencial:&nbsp;
                                                                 </span>
-                                                                  <img id="m_hd_dapnlSegurTomLf_daContacts_dropMeioContacto_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;">
+                                                                  
                                                                 </span>
                                                               </td>
                                                               <td>
-                                                                <select name="m$hd$dapnlSegurTomLf$daContacts$dropMeioContacto$xnDropD" id="m_hd_dapnlSegurTomLf_daContacts_dropMeioContacto_xnDropD" class="FormElementoWhite" onchange="">
+                                                                <select name="m$hd$dapnlSegurTomLf$daContacts$dropMeioContacto$xnDropD" id="m_hd_dapnlSegurTomLf_daContacts_dropMeioContacto_xnDropD" class="FormElementoWhite" style="margin-left:30%;">
                                                                   <option selected="selected" value=""></option>
                                                                   <option value="E">E-mail</option>
                                                                   <option value="T">Telefone</option>
@@ -632,7 +547,7 @@
                                                                 <span class="label">
                                                                   <span id="m_hd_dapnlSegurTomLf_daContacts_txtTelefone_lblCpt_lbl">N.º Telefone:&nbsp;
                                                                   </span>
-                                                                  <img id="m_hd_dapnlSegurTomLf_daContacts_txtTelefone_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;">
+                                                                  
                                                                 </span>
                                                               </td>
                                                               <td>
@@ -644,7 +559,7 @@
                                                                 <span class="label">
                                                                   <span id="m_hd_dapnlSegurTomLf_daContacts_txtTelemovel_lblCpt_lbl">N.º Telemóvel:&nbsp;
                                                                   </span>
-                                                                  <img id="m_hd_dapnlSegurTomLf_daContacts_txtTelemovel_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;">
+                                                                  
                                                                 </span>
                                                               </td>
                                                               <td>
@@ -656,7 +571,7 @@
                                                                 <span class="label">
                                                                   <span id="m_hd_dapnlSegurTomLf_daContacts_txtEmail_lblCpt_lbl">E-Mail:&nbsp;
                                                                   </span>
-                                                                  <img id="m_hd_dapnlSegurTomLf_daContacts_txtEmail_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;">
+                                                                  
                                                                 </span>
                                                               </td>
                                                               <td>
@@ -675,7 +590,7 @@
                                                           <span class="label">
                                                             <span id="m_hd_dapnlSegurTomLf_dropdEntContacto_lblCpt_lbl">Quem deverá ser contactado:&nbsp;
                                                             </span>
-                                                            <img id="m_hd_dapnlSegurTomLf_dropdEntContacto_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
+                                                            
                                                           </span>
                                                         </td>
                                                             <td>
@@ -701,7 +616,7 @@
                                                             <td>
                                                                 <span class="label"><span id="m_hd_dapnlSegurTomLf_dropdSegurado_lblCpt_lbl">Condutor é o segurado?&nbsp;
                                                                 </span>
-                                                                  <img id="m_hd_dapnlSegurTomLf_dropdSegurado_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
+                                                                  
                                                                 </span>
                                                             </td>
                                                             <td>
@@ -744,7 +659,7 @@
                                                     <tr>
                                                       <td style="width:80px">
 
-                                                        <span class="label"><span id="m_hd_dapnlVeiculoLf_dropdownCategoria_lblCpt_lbl">Categoria:&nbsp;</span><img id="m_hd_dapnlVeiculoLf_dropdownCategoria_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+                                                        <span class="label"><span id="m_hd_dapnlVeiculoLf_dropdownCategoria_lblCpt_lbl">Categoria:&nbsp;</span></td>
                                                       <td>
                                                         <select name="m$hd$dapnlVeiculoLf$dropdownCategoria$xnDropD" id="m_hd_dapnlVeiculoLf_dropdownCategoria_xnDropD" class="FormElementoWhite" onchange="">
                                                           <option selected="selected" value=""></option>
@@ -774,7 +689,7 @@
                                                     <tr>
                                                       <td style="width:80px">
 
-                                                        <span class="label"><span id="m_hd_dapnlVeiculoLf_dropdownMarca_lblCpt_lbl">Marca:&nbsp;</span><img id="m_hd_dapnlVeiculoLf_dropdownMarca_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+                                                        <span class="label"><span id="m_hd_dapnlVeiculoLf_dropdownMarca_lblCpt_lbl">Marca:&nbsp;</span></td>
                                                       <td>
                                                         <select name="m$hd$dapnlVeiculoLf$dropdownMarca$xnDropD" id="m_hd_dapnlVeiculoLf_dropdownMarca_xnDropD" class="FormElementoWhite" onchange="">
                                                           <option selected="selected" value=""></option>
@@ -786,7 +701,7 @@
                                                     <tr>
                                                       <td>
 
-                                                        <span class="label"><span id="m_hd_dapnlVeiculoLf_dropdownModelo_lblCpt_lbl">Modelo:&nbsp;</span><img id="m_hd_dapnlVeiculoLf_dropdownModelo_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+                                                        <span class="label"><span id="m_hd_dapnlVeiculoLf_dropdownModelo_lblCpt_lbl">Modelo:&nbsp;</span></td>
                                                       <td>
                                                         <select name="m$hd$dapnlVeiculoLf$dropdownModelo$xnDropD" id="m_hd_dapnlVeiculoLf_dropdownModelo_xnDropD" class="FormElementoWhite">
                                                           <option selected="selected" value=""></option>
@@ -798,7 +713,7 @@
                                                     <tr>
                                                       <td>
 
-                                                        <span class="label"><span id="m_hd_dapnlVeiculoLf_txtMatricula_lblCpt_lbl">Nº Matricula:&nbsp;</span><img id="m_hd_dapnlVeiculoLf_txtMatricula_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+                                                        <span class="label"><span id="m_hd_dapnlVeiculoLf_txtMatricula_lblCpt_lbl">Nº Matricula:&nbsp;</span></span></td>
                                                       <td>
                                                         <input name="m$hd$dapnlVeiculoLf$txtMatricula$xnTxt" type="text" maxlength="8" id="m_hd_dapnlVeiculoLf_txtMatricula_xnTxt" class="FormElementoWhite">
 
@@ -962,7 +877,7 @@
                                                        <tr>
                                                          <td>
 
-                                                          <span class="label"><span id="m_hd_dapnlCompSegLf_txtApolice_lblCpt_lbl">Apólice Nº:&nbsp;</span><img id="m_hd_dapnlCompSegLf_txtApolice_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+                                                          <span class="label"><span id="m_hd_dapnlCompSegLf_txtApolice_lblCpt_lbl">Apólice Nº:&nbsp;</span></td>
                                                         <td colspan="3">
                                                           <input name="m$hd$dapnlCompSegLf$txtApolice$xnTxt" type="text" maxlength="20" id="m_hd_dapnlCompSegLf_txtApolice_xnTxt" class="FormElementoWhite">
 
@@ -986,9 +901,8 @@
                                                           </span>
                                                         </td>
                                                         <td>
-                                                          <input name="m$hd$dapnlCompSegLf$dtValidadeDe$xnTxDt" type="text" maxlength="10" id="m_hd_dapnlCompSegLf_dtValidadeDe_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
-                                                          <a href="javascript:void(0);" onclick="">
-                                                            <img src="./form_files/datePicker.gif" alt="" style="border-style:none;vertical-align:bottom;"></a>
+                                                          <input name="m$hd$dapnlCompSegLf$dtValidadeDe$xnTxDt" type="date" maxlength="10" id="m_hd_dapnlCompSegLf_dtValidadeDe_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
+                                                          
                                                         </td>
                                                         <td>
                                                           <span class="label">
@@ -997,10 +911,8 @@
                                                           </span>
                                                         </td>
                                                         <td>
-                                                          <input name="m$hd$dapnlCompSegLf$dtValidadeA$xnTxDt" type="text" maxlength="10" id="m_hd_dapnlCompSegLf_dtValidadeA_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
-                                                          <a href="javascript:void(0);" onclick="">
-                                                            <img src="./form_files/datePicker.gif" alt="" style="border-style:none;vertical-align:bottom;">
-                                                          </a>
+                                                          <input name="m$hd$dapnlCompSegLf$dtValidadeA$xnTxDt" type="date" maxlength="10" id="m_hd_dapnlCompSegLf_dtValidadeA_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
+                                                          
                                                         </td>
                                                       </tr>
                                                       <tr>
@@ -1011,7 +923,7 @@
                                                           <span class="label">
                                                             <span id="m_hd_dapnlCompSegLf_txtNomeAgente_lblCpt_lbl">NOME:&nbsp;
                                                             </span>
-                                                            <img id="m_hd_dapnlCompSegLf_txtNomeAgente_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;display:none;">
+                                                            
                                                           </span>
                                                         </td>
                                                         <td colspan="3">
@@ -1055,7 +967,7 @@
                                                             <td>
                                                                 <input name="m$hd$dapnlCompSegLf$daContacts$txtCodPostal$xnTxt" type="text" maxlength="4" id="m_hd_dapnlCompSegLf_daContacts_txtCodPostal_xnTxt" class="FormElementoWhite" onkeypress="" onkeyup="" style="width:30px;">
                                                                 <input name="m$hd$dapnlCompSegLf$daContacts$txtCodPostal$xnTxt1" type="text" maxlength="3" id="m_hd_dapnlCompSegLf_daContacts_txtCodPostal_xnTxt1" class="FormElementoWhite" onkeypress="" onkeyup="" style="width:30px;">
-                                                                <input name="m$hd$dapnlCompSegLf$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlCompSegLf_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" style="width:98%;">
+                                                                <input name="m$hd$dapnlCompSegLf$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlCompSegLf_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" >
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1079,11 +991,11 @@
                                                               <span class="label">
                                                                 <span id="m_hd_dapnlCompSegLf_daContacts_dropMeioContacto_lblCpt_lbl">Meio contacto preferencial:&nbsp;
                                                                 </span>
-                                                                <img id="m_hd_dapnlCompSegLf_daContacts_dropMeioContacto_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;">
+                                                                
                                                               </span>
                                                             </td>
                                                             <td>
-                                                                <select name="m$hd$dapnlCompSegLf$daContacts$dropMeioContacto$xnDropD" id="m_hd_dapnlCompSegLf_daContacts_dropMeioContacto_xnDropD" class="FormElementoWhite" onchange="">
+                                                                <select name="m$hd$dapnlCompSegLf$daContacts$dropMeioContacto$xnDropD" id="m_hd_dapnlCompSegLf_daContacts_dropMeioContacto_xnDropD" class="FormElementoWhite" style="margin-left:30%;">
                                                                   <option selected="selected" value=""></option>
                                                                   <option value="E">E-mail</option>
                                                                   <option value="T">Telefone</option>
@@ -1098,7 +1010,7 @@
                                                               <span class="label">
                                                                 <span id="m_hd_dapnlCompSegLf_daContacts_txtTelefone_lblCpt_lbl">N.º Telefone:&nbsp;
                                                                 </span>
-                                                                <img id="m_hd_dapnlCompSegLf_daContacts_txtTelefone_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;">
+                                                                
                                                               </span>
                                                             </td>
                                                             <td>
@@ -1108,14 +1020,14 @@
                                                         <tr>
                                                       <td>
 
-                                                        <span class="label"><span id="m_hd_dapnlCompSegLf_daContacts_txtTelemovel_lblCpt_lbl">N.º Telemóvel:&nbsp;</span><img id="m_hd_dapnlCompSegLf_daContacts_txtTelemovel_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;"></span></td>
+                                                        <span class="label"><span id="m_hd_dapnlCompSegLf_daContacts_txtTelemovel_lblCpt_lbl">N.º Telemóvel:&nbsp;</span></td>
                                                       <td>
                                                         <input name="m$hd$dapnlCompSegLf$daContacts$txtTelemovel$xnTxt" type="text" maxlength="9" id="m_hd_dapnlCompSegLf_daContacts_txtTelemovel_xnTxt" class="FormElementoWhite" onkeypress="">
 
                                                       </td></tr><tr>
                                                       <td>
 
-                                                        <span class="label"><span id="m_hd_dapnlCompSegLf_daContacts_txtEmail_lblCpt_lbl">E-Mail:&nbsp;</span><img id="m_hd_dapnlCompSegLf_daContacts_txtEmail_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;"></span></td>
+                                                        <span class="label"><span id="m_hd_dapnlCompSegLf_daContacts_txtEmail_lblCpt_lbl">E-Mail:&nbsp;</span></span></td>
                                                       <td>
                                                         <input name="m$hd$dapnlCompSegLf$daContacts$txtEmail$xnTxt" type="text" maxlength="80" id="m_hd_dapnlCompSegLf_daContacts_txtEmail_xnTxt" class="FormElementoWhite">
 
@@ -1177,7 +1089,7 @@
                                                             <td style="width:100px">
                                                               <span class="label">
                                                                 <span id="m_hd_dapnlCondutorLf_txtApelido_lblCpt_lbl">APELIDO:&nbsp;</span>
-                                                                <img id="m_hd_dapnlCondutorLf_txtApelido_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
+                                                              
                                                               </span>
                                                             </td>
                                                             <td>
@@ -1187,7 +1099,7 @@
                                                         <tr>
                                                             <td>
 
-                                                              <span class="label"><span id="m_hd_dapnlCondutorLf_txtNome_lblCpt_lbl">Nome:&nbsp;</span><img id="m_hd_dapnlCondutorLf_txtNome_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+                                                              <span class="label"><span id="m_hd_dapnlCondutorLf_txtNome_lblCpt_lbl">Nome:&nbsp;</span></span></td>
                                                             <td>
                                                               <input name="m$hd$dapnlCondutorLf$txtNome$xnTxt" type="text" id="m_hd_dapnlCondutorLf_txtNome_xnTxt" class="FormElementoWhite">
 
@@ -1197,13 +1109,12 @@
                                                             <td>
                                                               <span class="label">
                                                                 <span id="m_hd_dapnlCondutorLf_dtNascimento_lblCpt_lbl">Data Nascimento:&nbsp;
-                                                                </span><img id="m_hd_dapnlCondutorLf_dtNascimento_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;">
+                                                                </span>
                                                               </span>
                                                             </td>
                                                             <td>
-                                                              <input name="m$hd$dapnlCondutorLf$dtNascimento$xnTxDt" type="text" maxlength="10" id="m_hd_dapnlCondutorLf_dtNascimento_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
-                                                              <a href="javascript:void(0);" onclick="">
-                                                                <img src="./form_files/datePicker.gif" alt="" style="border-style:none;vertical-align:bottom;"></a>
+                                                              <input name="m$hd$dapnlCondutorLf$dtNascimento$xnTxDt" type="date" maxlength="10" id="m_hd_dapnlCondutorLf_dtNascimento_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
+                                                              
                                                             </td>
                                                         </tr>
                                                         <tr id="m_hd_dapnlCondutorLf_dtNascimento_xnTxDt_dis" style="display:none">
@@ -1211,7 +1122,7 @@
                                                               <span class="label"><span>Data Nascimento&nbsp;</span></span>
                                                             </td>
                                                             <td>
-                                                              <input type="text" id="m_hd_dapnlCondutorLf_dtNascimento_xnTxDt_text" class="disabled" readonly="readonly">
+                                                              <input type="date" id="m_hd_dapnlCondutorLf_dtNascimento_xnTxDt_text" class="disabled" readonly="readonly">
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -1221,25 +1132,25 @@
                                                     <tbody><tr>
                                                       <td class="lblTitle90">
 
-                                                        <span class="label"><span id="m_hd_dapnlCondutorLf_daContacts_txtMorada_lblCpt_lbl">Morada:&nbsp;</span><img id="m_hd_dapnlCondutorLf_daContacts_txtMorada_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+                                                        <span class="label"><span id="m_hd_dapnlCondutorLf_daContacts_txtMorada_lblCpt_lbl">Morada:&nbsp;</span></span></td>
                                                       <td>
                                                         <input name="m$hd$dapnlCondutorLf$daContacts$txtMorada$xnTxt" type="text" maxlength="45" id="m_hd_dapnlCondutorLf_daContacts_txtMorada_xnTxt" class="FormElementoWhite">
 
                                                       </td></tr><tr>
                                                       <td>
 
-                                                        <span class="label"><span id="m_hd_dapnlCondutorLf_daContacts_txtLocalidade_lblCpt_lbl">Localidade:&nbsp;</span><img id="m_hd_dapnlCondutorLf_daContacts_txtLocalidade_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+                                                        <span class="label"><span id="m_hd_dapnlCondutorLf_daContacts_txtLocalidade_lblCpt_lbl">Localidade:&nbsp;</span></span></td>
                                                       <td>
                                                         <input name="m$hd$dapnlCondutorLf$daContacts$txtLocalidade$xnTxt" type="text" maxlength="45" id="m_hd_dapnlCondutorLf_daContacts_txtLocalidade_xnTxt" class="FormElementoWhite">
 
                                                       </td></tr><tr>
                                                       <td>
 
-                                                        <span class="label"><span id="m_hd_dapnlCondutorLf_daContacts_txtCodPostal_lblCpt_lbl">Código Postal:&nbsp;</span><img id="m_hd_dapnlCondutorLf_daContacts_txtCodPostal_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+                                                        <span class="label"><span id="m_hd_dapnlCondutorLf_daContacts_txtCodPostal_lblCpt_lbl">Código Postal:&nbsp;</span></span></td>
                                                       <td>
                                                         <input name="m$hd$dapnlCondutorLf$daContacts$txtCodPostal$xnTxt" type="text" maxlength="4" id="m_hd_dapnlCondutorLf_daContacts_txtCodPostal_xnTxt" class="FormElementoWhite" onkeypress="" onkeyup="" style="width:30px;">
                                                         <input name="m$hd$dapnlCondutorLf$daContacts$txtCodPostal$xnTxt1" type="text" maxlength="3" id="m_hd_dapnlCondutorLf_daContacts_txtCodPostal_xnTxt1" class="FormElementoWhite" onkeypress="" onkeyup="" style="width:30px;">
-                                                        <input name="m$hd$dapnlCondutorLf$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlCondutorLf_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" style="width:98%;">
+                                                        <input name="m$hd$dapnlCondutorLf$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlCondutorLf_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" >
                                                       </td></tr><tr>
                                                       <td>
 
@@ -1271,355 +1182,466 @@
                                                     </tbody>
                                                 </table>
 
+                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                  <tbody>
+                                                    <tr id="m_hd_dapnlCondutorLf_txtLicConducao_xnTxt_real">
+                                                      <td style="width:120px">
 
-<table cellspacing="0" cellpadding="0" border="0" width="100%">
-  <tbody><tr id="m_hd_dapnlCondutorLf_txtLicConducao_xnTxt_real">
+                                                        <span class="label"><span id="m_hd_dapnlCondutorLf_txtLicConducao_lblCpt_lbl">Licença condução nº:&nbsp;</span></span>
+                                                      </td>
+                                                      <td>
+                                                        <input name="m$hd$dapnlCondutorLf$txtLicConducao$xnTxt" type="text" id="m_hd_dapnlCondutorLf_txtLicConducao_xnTxt" class="FormElementoWhite">
 
-    <td style="width:120px">
+                                                      </td>
+                                                    </tr>
+                                                    <tr id="m_hd_dapnlCondutorLf_txtLicConducao_xnTxt_dis" style="display:none">
+                                                      <td>
+                                                        <span class="label"><span>Licença condução nº&nbsp;</span></span>
+                                                      </td>
+                                                      <td>
+                                                        <input type="text" id="m_hd_dapnlCondutorLf_txtLicConducao_xnTxt_text" class="disabled" readonly="readonly">
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>
 
-      <span class="label"><span id="m_hd_dapnlCondutorLf_txtLicConducao_lblCpt_lbl">Licença condução nº:&nbsp;</span></span></td>
-    <td>
-      <input name="m$hd$dapnlCondutorLf$txtLicConducao$xnTxt" type="text" id="m_hd_dapnlCondutorLf_txtLicConducao_xnTxt" class="FormElementoWhite">
+                                                        <span class="label"><span id="m_hd_dapnlCondutorLf_dropdLicCondCategoria_lblCpt_lbl">Categoria:&nbsp;</span></span></td>
+                                                      <td>
+                                                        <select name="m$hd$dapnlCondutorLf$dropdLicCondCategoria$xnDropD" id="m_hd_dapnlCondutorLf_dropdLicCondCategoria_xnDropD" class="FormElementoWhite">
+                                                          <option selected="selected" value=""></option>
+                                                          <option value="A">A - Carta de Motociclos</option>
+                                                          <option value="A1">A1 - Carta de Ciclomotores</option>
+                                                          <option value="B">B - Carta de Ligeiros até 3500 Kg.</option>
+                                                          <option value="B1">B1 - Triciclos e quadriciclos</option>
+                                                          <option value="BE">BE - Carta de Ligeiros &gt; 3500 Kg.</option>
+                                                          <option value="C">C - Carta de Pesados Mercadorias</option>
+                                                          <option value="C1">C1 - Pesados de mercadorias &lt; 7500 kg</option>
+                                                          <option value="CE">CE - Carta Pesados Mercadorias c/Reboque P.B &gt; 750 Kg</option>
+                                                          <option value="D">D - Carta de Pesados Passageiros</option>
+                                                          <option value="D1">D1 - Pesados de passageiros até 17 lugares</option>
+                                                          <option value="DE">DE - Carta Pesados Passageiros c/Reboque P.B &gt; 750 Kg</option>
+                                                          <option value="L1">L1 - Licença de Condução Ciclomotores &lt; 50 cm3</option>
+                                                          <option value="L2">L2 - Licença de Condução Veículos Agricolas</option>
+                                                          <option value="TC">TC - C1E - Tractor C c/ reboque &lt; 12000 kg</option>
+                                                          <option value="TD">TD - D1E-Tractor D c/ reboque &lt; 12000 kg</option>
 
-    </td>
-  </tr>
-  <tr id="m_hd_dapnlCondutorLf_txtLicConducao_xnTxt_dis" style="display:none">
-    <td>
-      <span class="label"><span>Licença condução nº&nbsp;</span></span>
-    </td>
-    <td>
-      <input type="text" id="m_hd_dapnlCondutorLf_txtLicConducao_xnTxt_text" class="disabled" readonly="readonly">
-    </td>
-  </tr>
-  <tr>
-    <td>
+                                                        </select>
 
-      <span class="label"><span id="m_hd_dapnlCondutorLf_dropdLicCondCategoria_lblCpt_lbl">Categoria:&nbsp;</span></span></td>
-    <td>
-      <select name="m$hd$dapnlCondutorLf$dropdLicCondCategoria$xnDropD" id="m_hd_dapnlCondutorLf_dropdLicCondCategoria_xnDropD" class="FormElementoWhite">
-        <option selected="selected" value=""></option>
-        <option value="A">A - Carta de Motociclos</option>
-        <option value="A1">A1 - Carta de Ciclomotores</option>
-        <option value="B">B - Carta de Ligeiros até 3500 Kg.</option>
-        <option value="B1">B1 - Triciclos e quadriciclos</option>
-        <option value="BE">BE - Carta de Ligeiros &gt; 3500 Kg.</option>
-        <option value="C">C - Carta de Pesados Mercadorias</option>
-        <option value="C1">C1 - Pesados de mercadorias &lt; 7500 kg</option>
-        <option value="CE">CE - Carta Pesados Mercadorias c/Reboque P.B &gt; 750 Kg</option>
-        <option value="D">D - Carta de Pesados Passageiros</option>
-        <option value="D1">D1 - Pesados de passageiros até 17 lugares</option>
-        <option value="DE">DE - Carta Pesados Passageiros c/Reboque P.B &gt; 750 Kg</option>
-        <option value="L1">L1 - Licença de Condução Ciclomotores &lt; 50 cm3</option>
-        <option value="L2">L2 - Licença de Condução Veículos Agricolas</option>
-        <option value="TC">TC - C1E - Tractor C c/ reboque &lt; 12000 kg</option>
-        <option value="TD">TD - D1E-Tractor D c/ reboque &lt; 12000 kg</option>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>
 
-      </select>
-
-    </td></tr>
-  <tr>
-    <td>
-
-      <span class="label"><span id="m_hd_dapnlCondutorLf_dtLicCondValidade_lblCpt_lbl">Válida até:&nbsp;</span></span></td>
-    <td>
-      <input name="m$hd$dapnlCondutorLf$dtLicCondValidade$xnTxDt" type="text" maxlength="10" id="m_hd_dapnlCondutorLf_dtLicCondValidade_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
-      <a href="javascript:void(0);" onclick=""><img src="./form_files/datePicker.gif" alt="" style="border-style:none;vertical-align:bottom;"></a>
-    </td></tr>
-
-  </tbody></table>
-</div></div>
-</td>
-</tr>
-<tr>
-  <td>
-    <div id="dapnlPontosEmbateLf" class="panelBase leftPanel"><div class="panelTitle"><table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
-      <tbody><tr>
-        <td valign="top" style="width:20px;"><div class="panelNumber">10.</div></td><td style="width:10px;">&nbsp;</td><td><div>Pontos de embate</div></td>
-      </tr>
-      </tbody></table></div><div class="panelTableContent">
-      <table border="0" class="pEmbInp" cellpadding="0" cellspacing="3" style="background-repeat: no-repeat;background-position:center center;margin:0 auto;width:110px">
-        <tbody><tr>
-          <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate1" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate1"></td>
-          <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate2" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate2"></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate3" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate3"></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate4" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate4"></td>
-        </tr>
-        <tr style="height: 55px;">
-          <td colspan="5">&nbsp;</td>
-        </tr>
-        <tr>
-          <td><input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate8" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate8"></td>
-          <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate11" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate11"></td>
-          <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate9" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate9"></td>
-        </tr>
-        <tr style="height: 55px;">
-          <td colspan="5" style="">&nbsp;</td>
-        </tr>
-        <tr>
-          <td><input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate5" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate5"></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate10" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate10"></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate6" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate6"></td>
-          <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate7" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate7"></td>
-          <td></td>
-        </tr>
-        </tbody></table>
-    </div></div>
-  </td>
-</tr>
-<tr>
-  <td>
-    <div id="pnlDanosVisLF" class="panelBase leftPanel"><div class="panelTitle"><table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
-      <tbody><tr>
-        <td valign="top" style="width:20px;"><div class="panelNumber">11.</div></td><td style="width:10px;">&nbsp;</td><td><div>Danos visíveis no veículo <img id="m_hd_pnlDanosVisLFimgreq" src="./form_files/required.gif" alt="*"></div></td>
-      </tr>
-      </tbody></table></div><div class="panelTableContent">
-      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="text-align:left;">
-        <tbody><tr>
-          <td style="text-align:center">Max: 99<br>caracteres</td>
-
-
-          <td>
-            <textarea name="m$hd$txDanosLF$xnTxtA" rows="3" cols="40" id="m_hd_txDanosLF_xnTxtA" class="FormElementoWhite" onblur=""></textarea>
-          </td>
-
-        </tr>
-        </tbody></table>
-    </div></div>
-  </td>
-</tr>
-<tr>
-  <td>
-    <div id="pnlObservLF" class="panelBase leftPanel"><div class="panelTitle"><table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
-      <tbody><tr>
-        <td valign="top" style="width:20px;"><div class="panelNumber">14.</div></td><td style="width:10px;">&nbsp;</td><td><div>As minhas observações</div></td>
-      </tr>
-      </tbody></table></div><div class="panelTableContent">
-      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="text-align:left;">
-        <tbody><tr>
-          <td style="text-align:center;">Max: 99<br>caracteres</td>
+                                                        <span class="label"><span id="m_hd_dapnlCondutorLf_dtLicCondValidade_lblCpt_lbl">Válida até:&nbsp;</span></span></td>
+                                                      <td>
+                                                        <input name="m$hd$dapnlCondutorLf$dtLicCondValidade$xnTxDt" type="date" maxlength="10" id="m_hd_dapnlCondutorLf_dtLicCondValidade_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
+                                                        
+                                                      </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <div id="dapnlPontosEmbateLf" class="panelBase leftPanel">
+                                          <div class="panelTitle">
+                                            <table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
+                                              <tbody>
+                                                <tr>
+                                                  <td valign="top" style="width:20px;">
+                                                    <div class="panelNumber">10.
+                                                    </div>
+                                                  </td>
+                                                  <td style="width:10px;">&nbsp;
+                                                  </td>
+                                                  <td>
+                                                    <div>Pontos de embate
+                                                    </div>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                          <div class="panelTableContent">
+                                            <table border="0" class="pEmbInp" cellpadding="0" cellspacing="3" style="background-repeat: no-repeat;background-position:center center;margin:0 auto;width:110px">
+                                              <tbody>
+                                                <tr>
+                                                  <td></td>
+                                                  <td>
+                                                    <input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate1" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate1">
+                                                  </td>
+                                                  <td></td>
+                                                  <td>
+                                                    <input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate2" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate2">
+                                                  </td>
+                                                  <td></td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate3" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate3">
+                                                  </td>
+                                                  <td></td>
+                                                  <td></td>
+                                                  <td></td>
+                                                  <td>
+                                                    <input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate4" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate4">
+                                                  </td>
+                                                </tr>
+                                                <tr style="height: 55px;">
+                                                  <td colspan="5">&nbsp;
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate8" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate8">
+                                                  </td>
+                                                  <td></td>
+                                                  <td>
+                                                    <input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate11" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate11">
+                                                  </td>
+                                                  <td></td>
+                                                  <td>
+                                                    <input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate9" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate9">
+                                                  </td>
+                                                </tr>
+                                                <tr style="height: 55px;">
+                                                  <td colspan="5" style="">&nbsp;
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate5" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate5">
+                                                  </td>
+                                                  <td></td>
+                                                  <td></td>
+                                                  <td></td>
+                                                  <td>
+                                                    <input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate10" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate10">
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td></td>
+                                                  <td>
+                                                    <input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate6" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate6">
+                                                  </td>
+                                                  <td></td>
+                                                  <td>
+                                                    <input id="m_hd_dapnlPontosEmbateLf_chkPontoEmbate7" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate7">
+                                                  </td>
+                                                  <td></td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <div id="pnlDanosVisLF" class="panelBase leftPanel"><div class="panelTitle"><table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
+                                          <tbody><tr>
+                                            <td valign="top" style="width:20px;"><div class="panelNumber">11.</div></td><td style="width:10px;">&nbsp;</td><td><div>Danos visíveis no veículo </div></td>
+                                          </tr>
+                                          </tbody></table></div><div class="panelTableContent">
+                                          <table cellspacing="0" cellpadding="0" border="0" width="100%" style="text-align:left;">
+                                            <tbody><tr>
+                                              <td style="text-align:center">Max: 99<br>caracteres</td>
 
 
-          <td>
-            <textarea name="m$hd$txObsLF$xnTxtA" rows="3" cols="40" id="m_hd_txObsLF_xnTxtA" class="FormElementoWhite" onblur=""></textarea>
-          </td>
+                                              <td>
+                                                <textarea name="m$hd$txDanosLF$xnTxtA" rows="3" cols="40" id="m_hd_txDanosLF_xnTxtA" class="FormElementoWhite" onblur=""></textarea>
+                                              </td>
 
-        </tr>
-        </tbody></table>
-    </div></div>
-  </td>
-</tr>
-</tbody></table>
-</td>
-<td class="middleContainer">
-  <div id="dapnlCircunstancias" class="panelBase middlePanel"><div class="panelTitle"><table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
-    <tbody><tr>
-      <td valign="top" style="width:20px;"><div class="panelNumber">12.</div></td><td style="width:10px;">&nbsp;</td><td><div class="center">CIRCUNSTÂNCIAS&nbsp;<img src="./form_files/questionMark.png" alt="?" title="Marcar a circunstância que melhor se adequa à dinâmica do acidente, devendo ignorar este preenchimento caso não existam opções que possam reflectir a forma como ocorreu o sinistro; neste caso, sugere-se o preenchimento pormenorizado do n.º 4." style="vertical-align:sub;"></div></td>
-    </tr>
-    </tbody></table></div><div class="panelTableContent">
-    <div style="text-align:center">Marcar no respectivo quadrado as circunstâncias aplicáveis a cada veículo para melhor compreensão do esquema do acidente.</div>
-  </div></div>
+                                            </tr>
+                                            </tbody>
+                                          </table>
+                                        </div></div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <div id="pnlObservLF" class="panelBase leftPanel">
+                                          <div class="panelTitle">
+                                            <table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
+                                              <tbody>
+                                                <tr>
+                                                  <td valign="top" style="width:20px;">
+                                                    <div class="panelNumber">14.</div>
+                                                  </td>
+                                                  <td style="width:10px;">&nbsp;</td>
+                                                  <td>
+                                                    <div>As minhas observações</div>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                          <div class="panelTableContent">
+                                            <table cellspacing="0" cellpadding="0" border="0" width="100%" style="text-align:left;">
+                                              <tbody>
+                                                <tr>
+                                                  <td style="text-align:center;">Max: 99<br>caracteres</td>
+                                                  <td>
+                                                    <textarea name="m$hd$txObsLF$xnTxtA" rows="3" cols="40" id="m_hd_txObsLF_xnTxtA" class="FormElementoWhite" onblur=""></textarea>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                      </td>
+                      <td class="middleContainer">
+                        <div id="dapnlCircunstancias" class="panelBase middlePanel">
+                          <div class="panelTitle">
+                            <table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
+                              <tbody>
+                                <tr>
+                                  <td valign="top" style="width:20px;">
+                                    <div class="panelNumber">12.</div>
+                                  </td>
+                                  <td style="width:10px;">&nbsp;</td>
+                                  <td>
+                                    <div class="center">CIRCUNSTÂNCIAS&nbsp;</div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="panelTableContent">
+                            <div style="text-align:center">Marcar no respectivo quadrado as circunstâncias aplicáveis a cada veículo para melhor compreensão do esquema do acidente.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="middlePanel" style="text-align:center;">
+                          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="text-align:left"><strong>&nbsp;&nbsp;A</strong></td>
+                                <td>&nbsp;</td>
+                                <td style="text-align:right"><strong>B&nbsp;&nbsp;</strong></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table width="100%" cellpadding="0" cellspacing="0" border="0" class="chkPanel">
+                            <tbody>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkEstacionadoLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkEstacionadoLf" onclick=""></td>
+                                <td>Estava estacionado / Parado</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkEstacionadoRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkEstacionadoRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkEstacionamentoLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkEstacionamentoLf" onclick=""></td>
+                                <td>Saía de estacionamento / Abria uma porta</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkEstacionamentoRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkEstacionamentoRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkEstacionarLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkEstacionarLf" onclick=""></td>
+                                <td>Ia estacionar</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkEstacionarRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkEstacionarRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkSaiaParqueLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkSaiaParqueLf" onclick=""></td>
+                                <td>Saía de um parque de estacionamento, de local privado ou de um caminho particular</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkSaiaParqueRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkSaiaParqueRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkEntravaParqueLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkEntravaParqueLf" onclick=""></td>
+                                <td>Entrava num parque de estacionamento, local privado ou de um caminho particular</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkEntravaParqueRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkEntravaParqueRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkEntravaRotundaLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkEntravaRotundaLf" onclick=""></td>
+                                <td>Entrava numa rotunda ou praça de sentido giratório</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkEntravaRotundaRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkEntravaRotundaRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkSentidoGiratorioLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkSentidoGiratorioLf" onclick=""></td>
+                                <td>Circulava numa rotunda ou praça de sentido giratório</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkSentidoGiratorioRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkSentidoGiratorioRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkEmbateuLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkEmbateuLf" onclick=""></td>
+                                <td>Embateu na traseira de outro veículo que circulava no mesmo sentido e na mesma fila</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkEmbateuRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkEmbateuRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkFilaDiferenteLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkFilaDiferenteLf" onclick=""></td>
+                                <td>Circulava no mesmo sentido mas numa fila diferente</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkFilaDiferenteRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkFilaDiferenteRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkMudavaFilaLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkMudavaFilaLf" onclick=""></td>
+                                <td>Mudava de fila</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkMudavaFilaRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkMudavaFilaRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkUltrapassavaLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkUltrapassavaLf" onclick=""></td>
+                                <td>Ultrapassava</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkUltrapassavaRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkUltrapassavaRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkViravaDtaLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkViravaDtaLf" onclick=""></td>
+                                <td>Virava à direita</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkViravaDtaRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkViravaDtaRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkViravaEsqLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkViravaEsqLf" onclick=""></td>
+                                <td>Virava à esquerda</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkViravaEsqRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkViravaEsqRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkRecuavaLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkRecuavaLf" onclick=""></td>
+                                <td>Recuava</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkRecuavaRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkRecuavaRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkSentidoContrarioLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkSentidoContrarioLf" onclick=""></td>
+                                <td>Circulava na parte da faixa de rodagem reservada à circulação em sentido contrário</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkSentidoContrarioRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkSentidoContrarioRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkDireitaLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkDireitaLf" onclick=""></td>
+                                <td>Apresentava-se pela direita (num cruzamento ou entroncamento)</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkDireitaRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkDireitaRt" onclick=""></td>
+                              </tr>
+                              <tr>
+                                <td><input id="m_hd_dapnlCircunstancias_chkNaoRespeitouLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkNaoRespeitouLf" onclick=""></td>
+                                <td>Não respeitou um sinal de dar prioridade ou um semáforo vermelho</td>
+                                <td><input id="m_hd_dapnlCircunstancias_chkNaoRespeitouRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkNaoRespeitouRt" onclick=""></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <br />
+                          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="text-align:left">
+                                  <span id="spCounterLF" class="circunsCounterBox">0</span>
+                                </td>
+                                <td>
+                                  <span style="font-weight:bold">Número total de quadrados marcados</span>
+                                </td>
+                                <td style="text-align:right">
+                                  <span id="spCounterRT" class="circunsCounterBox">0</span>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top:400px">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <div id="dapnlEsquemaAcidente" class="panelBase middlePanel">
+                                  <div class="panelTitle">
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
+                                      <tbody>
+                                        <tr>
+                                          <td valign="top" style="width:20px;">
+                                            <div class="panelNumber">13.</div>
+                                          </td>
+                                          <td style="width:10px;">&nbsp;</td>
+                                          <td>
+                                            <div>Esquema do acidente</div>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                  <div class="panelTableContent">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin:10px 0 10px 20px;">
+                                      <tbody>
+                                        <tr>
+                                          <td style="width:160px">
+                                            <span class="label">
+                                              <span id="m_hd_dapnlEsquemaAcidente_dropdownVeiculo_lblCpt_lbl">O veículo do participante é o:&nbsp;
+                                              </span>
+                                            </span>
+                                          </td>
+                                          <td>
+                                            <select name="m$hd$dapnlEsquemaAcidente$dropdownVeiculo$xnDropD" id="m_hd_dapnlEsquemaAcidente_dropdownVeiculo_xnDropD" class="FormElementoWhite">
+                                              <option selected="selected" value="Veículo X">Veículo X</option>
+                                              <option value="Veículo Y">Veículo Y</option>
+                                            </select>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="text-align:center">
+                                      <tbody>
+                                        <tr>
+                                          <td colspan="2"><img id="m_hd_dapnlEsquemaAcidente_imgEsquema" title="Clique para seleccionar esquema" class="esquemaImg" onclick="" src="./form_files/nonesel.jpg" alt="Nenhum esquema seleccionado" style="border-width:0px;">
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td colspan="2">&nbsp;<input type="hidden" name="m$hd$dapnlEsquemaAcidente$txtFileCod" id="m_hd_dapnlEsquemaAcidente_txtFileCod" value="/AsteriscoNet/img/sn/patautom/nonesel.jpg"></td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <div class="bt pointer" style="width:90px;float:none">
+                                              <div class="btl"></div>
+                                              <div id="m_hd_dapnlEsquemaAcidente_btnRemover" class="btc" onclick="">Remover</div>
+                                              <div class="btr"></div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div class="bt pointer" style="width:105px;float:none">
+                                              <div class="btl"></div>
+                                              <div class="btc"><a id="esquemaAcid" href="../../../../R%C3%B3mulo/Documents/Ant%C3%B3nio Duque/Cart%C3%A3o amigavel/Tranqui/EsquemaAcidente.aspx?xNetSID=130803-0f4b789b-5c899062553c&amp;t=patsinautom">Seleccionar</a></div>
+                                              <div class="btr"></div>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                                <div id="pnlAssinatura" class="panelBase middlePanel">
+                                  <div class="panelTitle">
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
+                                      <tbody>
+                                        <tr>
+                                          <td valign="top" style="width:20px;">
+                                            <div class="panelNumber">15.</div>
+                                          </td>
+                                          <td style="width:10px;">&nbsp;</td>
+                                          <td>
+                                            <div>Assinatura dos condutores</div>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                  <div class="panelTableContent">
+                                <table cellspacing="0" cellpadding="0" border="0" width="90%" style="margin-left:20px">
+                                  <tbody><tr>
+                                    <td style="width:180px">
 
-  <div class="middlePanel" style="text-align:center;">
-    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-      <tbody><tr>
-        <td style="text-align:left"><strong>&nbsp;&nbsp;A</strong></td>
-        <td>&nbsp;</td>
-        <td style="text-align:right"><strong>B&nbsp;&nbsp;</strong></td>
-      </tr>
-      </tbody></table>
-    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="chkPanel">
-      <tbody><tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkEstacionadoLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkEstacionadoLf" onclick=""></td>
-        <td>Estava estacionado / Parado</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkEstacionadoRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkEstacionadoRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkEstacionamentoLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkEstacionamentoLf" onclick=""></td>
-        <td>Saía de estacionamento / Abria uma porta</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkEstacionamentoRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkEstacionamentoRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkEstacionarLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkEstacionarLf" onclick=""></td>
-        <td>Ia estacionar</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkEstacionarRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkEstacionarRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkSaiaParqueLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkSaiaParqueLf" onclick=""></td>
-        <td>Saía de um parque de estacionamento, de local privado ou de um caminho particular</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkSaiaParqueRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkSaiaParqueRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkEntravaParqueLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkEntravaParqueLf" onclick=""></td>
-        <td>Entrava num parque de estacionamento, local privado ou de um caminho particular</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkEntravaParqueRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkEntravaParqueRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkEntravaRotundaLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkEntravaRotundaLf" onclick=""></td>
-        <td>Entrava numa rotunda ou praça de sentido giratório</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkEntravaRotundaRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkEntravaRotundaRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkSentidoGiratorioLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkSentidoGiratorioLf" onclick=""></td>
-        <td>Circulava numa rotunda ou praça de sentido giratório</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkSentidoGiratorioRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkSentidoGiratorioRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkEmbateuLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkEmbateuLf" onclick=""></td>
-        <td>Embateu na traseira de outro veículo que circulava no mesmo sentido e na mesma fila</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkEmbateuRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkEmbateuRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkFilaDiferenteLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkFilaDiferenteLf" onclick=""></td>
-        <td>Circulava no mesmo sentido mas numa fila diferente</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkFilaDiferenteRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkFilaDiferenteRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkMudavaFilaLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkMudavaFilaLf" onclick=""></td>
-        <td>Mudava de fila</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkMudavaFilaRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkMudavaFilaRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkUltrapassavaLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkUltrapassavaLf" onclick=""></td>
-        <td>Ultrapassava</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkUltrapassavaRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkUltrapassavaRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkViravaDtaLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkViravaDtaLf" onclick=""></td>
-        <td>Virava à direita</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkViravaDtaRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkViravaDtaRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkViravaEsqLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkViravaEsqLf" onclick=""></td>
-        <td>Virava à esquerda</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkViravaEsqRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkViravaEsqRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkRecuavaLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkRecuavaLf" onclick=""></td>
-        <td>Recuava</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkRecuavaRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkRecuavaRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkSentidoContrarioLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkSentidoContrarioLf" onclick=""></td>
-        <td>Circulava na parte da faixa de rodagem reservada à circulação em sentido contrário</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkSentidoContrarioRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkSentidoContrarioRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkDireitaLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkDireitaLf" onclick=""></td>
-        <td>Apresentava-se pela direita (num cruzamento ou entroncamento)</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkDireitaRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkDireitaRt" onclick=""></td>
-      </tr>
-      <tr>
-        <td><input id="m_hd_dapnlCircunstancias_chkNaoRespeitouLf" type="checkbox" name="m$hd$dapnlCircunstancias$chkNaoRespeitouLf" onclick=""></td>
-        <td>Não respeitou um sinal de dar prioridade ou um semáforo vermelho</td>
-        <td><input id="m_hd_dapnlCircunstancias_chkNaoRespeitouRt" type="checkbox" name="m$hd$dapnlCircunstancias$chkNaoRespeitouRt" onclick=""></td>
-      </tr>
-      </tbody></table>
-    <br>
-    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-      <tbody><tr>
-        <td style="text-align:left">
-          <span id="spCounterLF" class="circunsCounterBox">0</span>
-        </td>
-        <td>
-          <span style="font-weight:bold">Número total de quadrados marcados</span>
-        </td>
-        <td style="text-align:right">
-          <span id="spCounterRT" class="circunsCounterBox">0</span>
-        </td>
-      </tr>
-      </tbody></table>
-  </div>
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top:400px">
-    <tbody><tr>
-      <td>
-        <div id="dapnlEsquemaAcidente" class="panelBase middlePanel"><div class="panelTitle"><table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
-          <tbody><tr>
-            <td valign="top" style="width:20px;"><div class="panelNumber">13.</div></td><td style="width:10px;">&nbsp;</td><td><div>Esquema do acidente</div></td>
-          </tr>
-          </tbody></table></div><div class="panelTableContent">
-          <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin:10px 0 10px 20px;">
-            <tbody><tr>
-              <td style="width:160px">
+                                      <span class="label"><span id="m_hd_dropdAssin_lblCpt_lbl">Ambos os condutores assinaram?&nbsp;</span></span></td>
+                                    <td>
+                                      <select name="m$hd$dropdAssin$xnDropD" id="m_hd_dropdAssin_xnDropD" class="FormElementoWhite">
+                                        <option selected="selected" value=""></option>
+                                        <option value="A">Condutor do Veículo A</option>
+                                        <option value="B">Condutor do Veículo B</option>
+                                        <option value="N">Não</option>
+                                        <option value="Y">Sim</option>
 
-                <span class="label"><span id="m_hd_dapnlEsquemaAcidente_dropdownVeiculo_lblCpt_lbl">O veículo do participante é o:&nbsp;</span><img id="m_hd_dapnlEsquemaAcidente_dropdownVeiculo_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
-              <td>
-                <select name="m$hd$dapnlEsquemaAcidente$dropdownVeiculo$xnDropD" id="m_hd_dapnlEsquemaAcidente_dropdownVeiculo_xnDropD" class="FormElementoWhite">
-                  <option selected="selected" value="Veículo X">Veículo X</option>
-                  <option value="Veículo Y">Veículo Y</option>
+                                      </select>
 
-                </select>
-
-              </td></tr>
-            </tbody></table>
-          <table cellspacing="0" cellpadding="0" border="0" width="100%" style="text-align:center">
-            <tbody><tr>
-              <td colspan="2"><img id="m_hd_dapnlEsquemaAcidente_imgEsquema" title="Clique para seleccionar esquema" class="esquemaImg" onclick="" src="./form_files/nonesel.jpg" alt="Nenhum esquema seleccionado" style="border-width:0px;"></td>
-            </tr>
-            <tr>
-              <td colspan="2">&nbsp;<input type="hidden" name="m$hd$dapnlEsquemaAcidente$txtFileCod" id="m_hd_dapnlEsquemaAcidente_txtFileCod" value="/AsteriscoNet/img/sn/patautom/nonesel.jpg"></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="bt pointer" style="width:90px;float:none">
-                  <div class="btl"></div>
-                  <div id="m_hd_dapnlEsquemaAcidente_btnRemover" class="btc" onclick="">Remover</div>
-                  <div class="btr"></div>
-                </div>
-              </td>
-              <td>
-                <div class="bt pointer" style="width:105px;float:none">
-                  <div class="btl"></div>
-                  <div class="btc"><a id="esquemaAcid" href="../../../../R%C3%B3mulo/Documents/Ant%C3%B3nio Duque/Cart%C3%A3o amigavel/Tranqui/EsquemaAcidente.aspx?xNetSID=130803-0f4b789b-5c899062553c&amp;t=patsinautom">Seleccionar</a></div>
-                  <div class="btr"></div>
-                </div>
-              </td>
-            </tr>
-            </tbody></table>
-        </div></div>
-        <div id="pnlAssinatura" class="panelBase middlePanel"><div class="panelTitle"><table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
-          <tbody><tr>
-            <td valign="top" style="width:20px;"><div class="panelNumber">15.</div></td><td style="width:10px;">&nbsp;</td><td><div>Assinatura dos condutores</div></td>
-          </tr>
-          </tbody></table></div><div class="panelTableContent">
-          <table cellspacing="0" cellpadding="0" border="0" width="90%" style="margin-left:20px">
-            <tbody><tr>
-              <td style="width:180px">
-
-                <span class="label"><span id="m_hd_dropdAssin_lblCpt_lbl">Ambos os condutores assinaram?&nbsp;</span><img id="m_hd_dropdAssin_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
-              <td>
-                <select name="m$hd$dropdAssin$xnDropD" id="m_hd_dropdAssin_xnDropD" class="FormElementoWhite">
-                  <option selected="selected" value=""></option>
-                  <option value="A">Condutor do Veículo A</option>
-                  <option value="B">Condutor do Veículo B</option>
-                  <option value="N">Não</option>
-                  <option value="Y">Sim</option>
-
-                </select>
-
-              </td></tr>
-            </tbody></table>
-        </div></div>
-      </td>
-    </tr>
-    </tbody></table>
-</td>
+                                    </td></tr>
+                                  </tbody></table>
+                              </div></div>
+                            </td>
+                          </tr>
+                          </tbody></table>
+                      </td>
 <td id="tdClassVeiculoB" class="rightContainer" style="position:relative">
 <div class="panelTitle center">VEÍCULO B</div>
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -1633,8 +1655,16 @@
 <table cellspacing="0" cellpadding="0" border="0" width="100%" style="table-layout:fixed;">
   <tbody><tr>
     <td>
-      <span class="radio"><label for="m_hd_dapnlSegurTomRt_rbEntidadeIndividual">Individual</label><input id="m_hd_dapnlSegurTomRt_rbEntidadeIndividual" type="radio" name="m$hd$dapnlSegurTomRt$Entidade" value="rbEntidadeIndividual" checked="checked" onclick=""></span>
-      <span class="radio"><label for="m_hd_dapnlSegurTomRt_rbEntidadeColetiva">Coletiva</label><input id="m_hd_dapnlSegurTomRt_rbEntidadeColetiva" type="radio" name="m$hd$dapnlSegurTomRt$Entidade" value="rbEntidadeColetiva" onclick=""></span>
+      <span class="radio"><label for="m_hd_dapnlSegurTomRt_rbEntidadeIndividual">Individual</label>
+      </td>
+      <td> 
+        <input id="m_hd_dapnlSegurTomRt_rbEntidadeIndividual" type="radio" name="m$hd$dapnlSegurTomRt$Entidade" value="rbEntidadeIndividual" checked="checked" onclick=""></span>
+      </td>
+      <td> 
+      <span class="radio"><label for="m_hd_dapnlSegurTomRt_rbEntidadeColetiva">Coletiva</label>
+      </td>
+      <td> 
+        <input id="m_hd_dapnlSegurTomRt_rbEntidadeColetiva" type="radio" name="m$hd$dapnlSegurTomRt$Entidade" value="rbEntidadeColetiva" onclick=""></span>
     </td>
   </tr>
   </tbody></table>
@@ -1643,7 +1673,7 @@
     <tbody><tr>
       <td class="lblTitle90">
 
-        <span class="label"><span id="m_hd_dapnlSegurTomRt_txtApelido_lblCpt_lbl">APELIDO:&nbsp;</span><img id="m_hd_dapnlSegurTomRt_txtApelido_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+        <span class="label"><span id="m_hd_dapnlSegurTomRt_txtApelido_lblCpt_lbl">APELIDO:&nbsp;</span></span></td>
       <td>
         <input name="m$hd$dapnlSegurTomRt$txtApelido$xnTxt" type="text" maxlength="45" id="m_hd_dapnlSegurTomRt_txtApelido_xnTxt" class="FormElementoWhite">
 
@@ -1654,7 +1684,7 @@
   <tbody><tr>
     <td class="lblTitle90">
 
-      <span class="label"><span id="m_hd_dapnlSegurTomRt_txtNome_lblCpt_lbl">Nome:&nbsp;</span><img id="m_hd_dapnlSegurTomRt_txtNome_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+      <span class="label"><span id="m_hd_dapnlSegurTomRt_txtNome_lblCpt_lbl">Nome:&nbsp;</span></span></td>
     <td>
       <input name="m$hd$dapnlSegurTomRt$txtNome$xnTxt" type="text" maxlength="45" id="m_hd_dapnlSegurTomRt_txtNome_xnTxt" class="FormElementoWhite">
 
@@ -1665,25 +1695,25 @@
 <tbody><tr>
   <td class="lblTitle90">
 
-    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_txtMorada_lblCpt_lbl">Morada:&nbsp;</span><img id="m_hd_dapnlSegurTomRt_daContacts_txtMorada_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_txtMorada_lblCpt_lbl">Morada:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlSegurTomRt$daContacts$txtMorada$xnTxt" type="text" maxlength="45" id="m_hd_dapnlSegurTomRt_daContacts_txtMorada_xnTxt" class="FormElementoWhite">
 
   </td></tr><tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_txtLocalidade_lblCpt_lbl">Localidade:&nbsp;</span><img id="m_hd_dapnlSegurTomRt_daContacts_txtLocalidade_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_txtLocalidade_lblCpt_lbl">Localidade:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlSegurTomRt$daContacts$txtLocalidade$xnTxt" type="text" maxlength="45" id="m_hd_dapnlSegurTomRt_daContacts_txtLocalidade_xnTxt" class="FormElementoWhite">
 
   </td></tr><tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_txtCodPostal_lblCpt_lbl">Código Postal:&nbsp;</span><img id="m_hd_dapnlSegurTomRt_daContacts_txtCodPostal_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_txtCodPostal_lblCpt_lbl">Código Postal:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlSegurTomRt$daContacts$txtCodPostal$xnTxt" type="text" maxlength="4" id="m_hd_dapnlSegurTomRt_daContacts_txtCodPostal_xnTxt" class="FormElementoWhite" onkeypress="" onkeyup="" style="width:30px;">
     <input name="m$hd$dapnlSegurTomRt$daContacts$txtCodPostal$xnTxt1" type="text" maxlength="3" id="m_hd_dapnlSegurTomRt_daContacts_txtCodPostal_xnTxt1" class="FormElementoWhite" onkeypress="" onkeyup="" style="width:30px;">
-    <input name="m$hd$dapnlSegurTomRt$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlSegurTomRt_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" style="width:98%;">
+    <input name="m$hd$dapnlSegurTomRt$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlSegurTomRt_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" >
   </td></tr><tr>
   <td>
 
@@ -1699,9 +1729,9 @@
   </td></tr><tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_dropMeioContacto_lblCpt_lbl">Meio contacto preferencial:&nbsp;</span><img id="m_hd_dapnlSegurTomRt_daContacts_dropMeioContacto_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;"></span></td>
+    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_dropMeioContacto_lblCpt_lbl">Meio contacto preferencial:&nbsp;</span></span></td>
   <td>
-    <select name="m$hd$dapnlSegurTomRt$daContacts$dropMeioContacto$xnDropD" id="m_hd_dapnlSegurTomRt_daContacts_dropMeioContacto_xnDropD" class="FormElementoWhite" onchange="">
+    <select name="m$hd$dapnlSegurTomRt$daContacts$dropMeioContacto$xnDropD" id="m_hd_dapnlSegurTomRt_daContacts_dropMeioContacto_xnDropD" class="FormElementoWhite" style="margin-left:30%;">
       <option selected="selected" value=""></option>
       <option value="E">E-mail</option>
       <option value="T">Telefone</option>
@@ -1712,21 +1742,21 @@
   </td></tr><tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_txtTelefone_lblCpt_lbl">N.º Telefone:&nbsp;</span><img id="m_hd_dapnlSegurTomRt_daContacts_txtTelefone_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;"></span></td>
+    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_txtTelefone_lblCpt_lbl">N.º Telefone:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlSegurTomRt$daContacts$txtTelefone$xnTxt" type="text" maxlength="9" id="m_hd_dapnlSegurTomRt_daContacts_txtTelefone_xnTxt" class="FormElementoWhite" onkeypress="">
 
   </td></tr><tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_txtTelemovel_lblCpt_lbl">N.º Telemóvel:&nbsp;</span><img id="m_hd_dapnlSegurTomRt_daContacts_txtTelemovel_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;"></span></td>
+    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_txtTelemovel_lblCpt_lbl">N.º Telemóvel:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlSegurTomRt$daContacts$txtTelemovel$xnTxt" type="text" maxlength="9" id="m_hd_dapnlSegurTomRt_daContacts_txtTelemovel_xnTxt" class="FormElementoWhite" onkeypress="">
 
   </td></tr><tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_txtEmail_lblCpt_lbl">E-Mail:&nbsp;</span><img id="m_hd_dapnlSegurTomRt_daContacts_txtEmail_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;"></span></td>
+    <span class="label"><span id="m_hd_dapnlSegurTomRt_daContacts_txtEmail_lblCpt_lbl">E-Mail:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlSegurTomRt$daContacts$txtEmail$xnTxt" type="text" maxlength="80" id="m_hd_dapnlSegurTomRt_daContacts_txtEmail_xnTxt" class="FormElementoWhite">
 
@@ -1738,7 +1768,7 @@
   <tbody><tr>
     <td class="lblTitle160">
 
-      <span class="label"><span id="m_hd_dapnlSegurTomRt_dropdEntContacto_lblCpt_lbl">Quem deverá ser contactado:&nbsp;</span><img id="m_hd_dapnlSegurTomRt_dropdEntContacto_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+      <span class="label"><span id="m_hd_dapnlSegurTomRt_dropdEntContacto_lblCpt_lbl">Quem deverá ser contactado:&nbsp;</span></span></td>
     <td>
       <select name="m$hd$dapnlSegurTomRt$dropdEntContacto$xnDropD" id="m_hd_dapnlSegurTomRt_dropdEntContacto_xnDropD" class="FormElementoWhite" onchange="">
         <option selected="selected" value=""></option>
@@ -1760,7 +1790,7 @@
   <tr>
     <td>
 
-      <span class="label"><span id="m_hd_dapnlSegurTomRt_dropdSegurado_lblCpt_lbl">Condutor é o segurado?&nbsp;</span><img id="m_hd_dapnlSegurTomRt_dropdSegurado_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+      <span class="label"><span id="m_hd_dapnlSegurTomRt_dropdSegurado_lblCpt_lbl">Condutor é o segurado?&nbsp;</span></span></td>
     <td>
       <select name="m$hd$dapnlSegurTomRt$dropdSegurado$xnDropD" id="m_hd_dapnlSegurTomRt_dropdSegurado_xnDropD" class="FormElementoWhite" onchange="">
         <option selected="selected" value=""></option>
@@ -1792,7 +1822,7 @@
 <tr>
   <td style="width:80px">
 
-    <span class="label"><span id="m_hd_dapnlVeiculoRt_dropdownCategoria_lblCpt_lbl">Categoria:&nbsp;</span><img id="m_hd_dapnlVeiculoRt_dropdownCategoria_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+    <span class="label"><span id="m_hd_dapnlVeiculoRt_dropdownCategoria_lblCpt_lbl">Categoria:&nbsp;</span></span></td>
   <td>
     <select name="m$hd$dapnlVeiculoRt$dropdownCategoria$xnDropD" id="m_hd_dapnlVeiculoRt_dropdownCategoria_xnDropD" class="FormElementoWhite" onchange="">
       <option selected="selected" value=""></option>
@@ -1821,7 +1851,7 @@
 <tr>
   <td style="width:80px">
 
-    <span class="label"><span id="m_hd_dapnlVeiculoRt_dropdownMarca_lblCpt_lbl">Marca:&nbsp;</span><img id="m_hd_dapnlVeiculoRt_dropdownMarca_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+    <span class="label"><span id="m_hd_dapnlVeiculoRt_dropdownMarca_lblCpt_lbl">Marca:&nbsp;</span></span></td>
   <td>
     <select name="m$hd$dapnlVeiculoRt$dropdownMarca$xnDropD" id="m_hd_dapnlVeiculoRt_dropdownMarca_xnDropD" class="FormElementoWhite" onchange="">
       <option selected="selected" value=""></option>
@@ -1832,7 +1862,7 @@
 <tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlVeiculoRt_dropdownModelo_lblCpt_lbl">Modelo:&nbsp;</span><img id="m_hd_dapnlVeiculoRt_dropdownModelo_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+    <span class="label"><span id="m_hd_dapnlVeiculoRt_dropdownModelo_lblCpt_lbl">Modelo:&nbsp;</span></span></td>
   <td>
     <select name="m$hd$dapnlVeiculoRt$dropdownModelo$xnDropD" id="m_hd_dapnlVeiculoRt_dropdownModelo_xnDropD" class="FormElementoWhite">
       <option selected="selected" value=""></option>
@@ -1843,7 +1873,7 @@
 <tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlVeiculoRt_txtMatricula_lblCpt_lbl">Nº Matricula:&nbsp;</span><img id="m_hd_dapnlVeiculoRt_txtMatricula_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+    <span class="label"><span id="m_hd_dapnlVeiculoRt_txtMatricula_lblCpt_lbl">Nº Matricula:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlVeiculoRt$txtMatricula$xnTxt" type="text" maxlength="8" id="m_hd_dapnlVeiculoRt_txtMatricula_xnTxt" class="FormElementoWhite">
 
@@ -1903,7 +1933,7 @@
   <tbody><tr>
     <td style="width:90px">
 
-      <span class="label"><span id="m_hd_dapnlCompSegRt_dropdNome_lblCpt_lbl">Nome:&nbsp;</span><img id="m_hd_dapnlCompSegRt_dropdNome_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px;"></span></td>
+      <span class="label"><span id="m_hd_dapnlCompSegRt_dropdNome_lblCpt_lbl">Nome:&nbsp;</span></span></td>
     <td colspan="3">
       <select name="m$hd$dapnlCompSegRt$dropdNome$xnDropD" id="m_hd_dapnlCompSegRt_dropdNome_xnDropD" class="FormElementoWhite">
         <option selected="selected" value=""></option>
@@ -1982,7 +2012,7 @@
   <tr>
     <td>
 
-      <span class="label"><span id="m_hd_dapnlCompSegRt_txtApolice_lblCpt_lbl">Apólice Nº:&nbsp;</span><img id="m_hd_dapnlCompSegRt_txtApolice_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+      <span class="label"><span id="m_hd_dapnlCompSegRt_txtApolice_lblCpt_lbl">Apólice Nº:&nbsp;</span></span></td>
     <td colspan="3">
       <input name="m$hd$dapnlCompSegRt$txtApolice$xnTxt" type="text" maxlength="20" id="m_hd_dapnlCompSegRt_txtApolice_xnTxt" class="FormElementoWhite">
 
@@ -2001,8 +2031,8 @@
 
       <span class="label"><span id="m_hd_dapnlCompSegRt_dtValidadeDe_lblCpt_lbl">Validade de:&nbsp;</span></span></td>
     <td>
-      <input name="m$hd$dapnlCompSegRt$dtValidadeDe$xnTxDt" type="text" maxlength="10" id="m_hd_dapnlCompSegRt_dtValidadeDe_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
-      <a href="javascript:void(0);" onclick=""><img src="./form_files/datePicker.gif" alt="" style="border-style:none;vertical-align:bottom;"></a>
+      <input name="m$hd$dapnlCompSegRt$dtValidadeDe$xnTxDt" type="date" maxlength="10" id="m_hd_dapnlCompSegRt_dtValidadeDe_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
+      
     </td>
 
 
@@ -2010,8 +2040,8 @@
 
       <span class="label"><span id="m_hd_dapnlCompSegRt_dtValidadeA_lblCpt_lbl">a:&nbsp;</span></span></td>
     <td>
-      <input name="m$hd$dapnlCompSegRt$dtValidadeA$xnTxDt" type="text" maxlength="10" id="m_hd_dapnlCompSegRt_dtValidadeA_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
-      <a href="javascript:void(0);" onclick=""><img src="./form_files/datePicker.gif" alt="" style="border-style:none;vertical-align:bottom;"></a>
+      <input name="m$hd$dapnlCompSegRt$dtValidadeA$xnTxDt" type="date" maxlength="10" id="m_hd_dapnlCompSegRt_dtValidadeA_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
+      
     </td>
 
   </tr>
@@ -2021,7 +2051,7 @@
   <tr>
     <td>
 
-      <span class="label"><span id="m_hd_dapnlCompSegRt_txtNomeAgente_lblCpt_lbl">NOME:&nbsp;</span><img id="m_hd_dapnlCompSegRt_txtNomeAgente_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;display:none;"></span></td>
+      <span class="label"><span id="m_hd_dapnlCompSegRt_txtNomeAgente_lblCpt_lbl">NOME:&nbsp;</span></span></td>
     <td colspan="3">
       <input name="m$hd$dapnlCompSegRt$txtNomeAgente$xnTxt" type="text" id="m_hd_dapnlCompSegRt_txtNomeAgente_xnTxt" class="FormElementoWhite">
 
@@ -2050,7 +2080,7 @@
   <td>
     <input name="m$hd$dapnlCompSegRt$daContacts$txtCodPostal$xnTxt" type="text" maxlength="4" id="m_hd_dapnlCompSegRt_daContacts_txtCodPostal_xnTxt" class="FormElementoWhite" onkeypress="" onkeyup="" style="width:30px;">
     <input name="m$hd$dapnlCompSegRt$daContacts$txtCodPostal$xnTxt1" type="text" maxlength="3" id="m_hd_dapnlCompSegRt_daContacts_txtCodPostal_xnTxt1" class="FormElementoWhite" onkeypress="" onkeyup="" style="width:30px;">
-    <input name="m$hd$dapnlCompSegRt$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlCompSegRt_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" style="width:98%;">
+    <input name="m$hd$dapnlCompSegRt$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlCompSegRt_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" >
   </td></tr><tr>
   <td>
 
@@ -2066,9 +2096,9 @@
   </td></tr><tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlCompSegRt_daContacts_dropMeioContacto_lblCpt_lbl">Meio contacto preferencial:&nbsp;</span><img id="m_hd_dapnlCompSegRt_daContacts_dropMeioContacto_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;"></span></td>
+    <span class="label"><span id="m_hd_dapnlCompSegRt_daContacts_dropMeioContacto_lblCpt_lbl">Meio contacto preferencial:&nbsp;</span></span></td>
   <td>
-    <select name="m$hd$dapnlCompSegRt$daContacts$dropMeioContacto$xnDropD" id="m_hd_dapnlCompSegRt_daContacts_dropMeioContacto_xnDropD" class="FormElementoWhite" onchange="">
+    <select name="m$hd$dapnlCompSegRt$daContacts$dropMeioContacto$xnDropD" id="m_hd_dapnlCompSegRt_daContacts_dropMeioContacto_xnDropD" class="FormElementoWhite" style="margin-left:30%;">
       <option selected="selected" value=""></option>
       <option value="E">E-mail</option>
       <option value="T">Telefone</option>
@@ -2079,21 +2109,21 @@
   </td></tr><tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlCompSegRt_daContacts_txtTelefone_lblCpt_lbl">N.º Telefone:&nbsp;</span><img id="m_hd_dapnlCompSegRt_daContacts_txtTelefone_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;"></span></td>
+    <span class="label"><span id="m_hd_dapnlCompSegRt_daContacts_txtTelefone_lblCpt_lbl">N.º Telefone:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlCompSegRt$daContacts$txtTelefone$xnTxt" type="text" maxlength="9" id="m_hd_dapnlCompSegRt_daContacts_txtTelefone_xnTxt" class="FormElementoWhite" onkeypress="">
 
   </td></tr><tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlCompSegRt_daContacts_txtTelemovel_lblCpt_lbl">N.º Telemóvel:&nbsp;</span><img id="m_hd_dapnlCompSegRt_daContacts_txtTelemovel_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;"></span></td>
+    <span class="label"><span id="m_hd_dapnlCompSegRt_daContacts_txtTelemovel_lblCpt_lbl">N.º Telemóvel:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlCompSegRt$daContacts$txtTelemovel$xnTxt" type="text" maxlength="9" id="m_hd_dapnlCompSegRt_daContacts_txtTelemovel_xnTxt" class="FormElementoWhite" onkeypress="">
 
   </td></tr><tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlCompSegRt_daContacts_txtEmail_lblCpt_lbl">E-Mail:&nbsp;</span><img id="m_hd_dapnlCompSegRt_daContacts_txtEmail_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;"></span></td>
+    <span class="label"><span id="m_hd_dapnlCompSegRt_daContacts_txtEmail_lblCpt_lbl">E-Mail:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlCompSegRt$daContacts$txtEmail$xnTxt" type="text" maxlength="80" id="m_hd_dapnlCompSegRt_daContacts_txtEmail_xnTxt" class="FormElementoWhite">
 
@@ -2130,7 +2160,7 @@
   <tbody><tr>
     <td style="width:100px">
 
-      <span class="label"><span id="m_hd_dapnlCondutorRt_txtApelido_lblCpt_lbl">APELIDO:&nbsp;</span><img id="m_hd_dapnlCondutorRt_txtApelido_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+      <span class="label"><span id="m_hd_dapnlCondutorRt_txtApelido_lblCpt_lbl">APELIDO:&nbsp;</span></span></td>
     <td>
       <input name="m$hd$dapnlCondutorRt$txtApelido$xnTxt" type="text" id="m_hd_dapnlCondutorRt_txtApelido_xnTxt" class="FormElementoWhite">
 
@@ -2138,7 +2168,7 @@
   <tr>
     <td>
 
-      <span class="label"><span id="m_hd_dapnlCondutorRt_txtNome_lblCpt_lbl">Nome:&nbsp;</span><img id="m_hd_dapnlCondutorRt_txtNome_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+      <span class="label"><span id="m_hd_dapnlCondutorRt_txtNome_lblCpt_lbl">Nome:&nbsp;</span></span></td>
     <td>
       <input name="m$hd$dapnlCondutorRt$txtNome$xnTxt" type="text" id="m_hd_dapnlCondutorRt_txtNome_xnTxt" class="FormElementoWhite">
 
@@ -2147,10 +2177,10 @@
 
     <td>
 
-      <span class="label"><span id="m_hd_dapnlCondutorRt_dtNascimento_lblCpt_lbl">Data Nascimento:&nbsp;</span><img id="m_hd_dapnlCondutorRt_dtNascimento_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+      <span class="label"><span id="m_hd_dapnlCondutorRt_dtNascimento_lblCpt_lbl">Data Nascimento:&nbsp;</span></span></td>
     <td>
-      <input name="m$hd$dapnlCondutorRt$dtNascimento$xnTxDt" type="text" maxlength="10" id="m_hd_dapnlCondutorRt_dtNascimento_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
-      <a href="javascript:void(0);" onclick=""><img src="./form_files/datePicker.gif" alt="" style="border-style:none;vertical-align:bottom;"></a>
+      <input name="m$hd$dapnlCondutorRt$dtNascimento$xnTxDt" type="date" maxlength="10" id="m_hd_dapnlCondutorRt_dtNascimento_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
+      
     </td>
 
   </tr>
@@ -2168,25 +2198,25 @@
 <tbody><tr>
   <td class="lblTitle90">
 
-    <span class="label"><span id="m_hd_dapnlCondutorRt_daContacts_txtMorada_lblCpt_lbl">Morada:&nbsp;</span><img id="m_hd_dapnlCondutorRt_daContacts_txtMorada_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+    <span class="label"><span id="m_hd_dapnlCondutorRt_daContacts_txtMorada_lblCpt_lbl">Morada:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlCondutorRt$daContacts$txtMorada$xnTxt" type="text" maxlength="45" id="m_hd_dapnlCondutorRt_daContacts_txtMorada_xnTxt" class="FormElementoWhite">
 
   </td></tr><tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlCondutorRt_daContacts_txtLocalidade_lblCpt_lbl">Localidade:&nbsp;</span><img id="m_hd_dapnlCondutorRt_daContacts_txtLocalidade_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+    <span class="label"><span id="m_hd_dapnlCondutorRt_daContacts_txtLocalidade_lblCpt_lbl">Localidade:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlCondutorRt$daContacts$txtLocalidade$xnTxt" type="text" maxlength="45" id="m_hd_dapnlCondutorRt_daContacts_txtLocalidade_xnTxt" class="FormElementoWhite">
 
   </td></tr><tr>
   <td>
 
-    <span class="label"><span id="m_hd_dapnlCondutorRt_daContacts_txtCodPostal_lblCpt_lbl">Código Postal:&nbsp;</span><img id="m_hd_dapnlCondutorRt_daContacts_txtCodPostal_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width:0px;"></span></td>
+    <span class="label"><span id="m_hd_dapnlCondutorRt_daContacts_txtCodPostal_lblCpt_lbl">Código Postal:&nbsp;</span></span></td>
   <td>
     <input name="m$hd$dapnlCondutorRt$daContacts$txtCodPostal$xnTxt" type="text" maxlength="4" id="m_hd_dapnlCondutorRt_daContacts_txtCodPostal_xnTxt" class="FormElementoWhite" onkeypress="" onkeyup="" style="width:30px;">
     <input name="m$hd$dapnlCondutorRt$daContacts$txtCodPostal$xnTxt1" type="text" maxlength="3" id="m_hd_dapnlCondutorRt_daContacts_txtCodPostal_xnTxt1" class="FormElementoWhite" onkeypress="" onkeyup="" style="width:30px;">
-    <input name="m$hd$dapnlCondutorRt$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlCondutorRt_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" style="width:98%;">
+    <input name="m$hd$dapnlCondutorRt$daContacts$txtCodPostal$xnTxt2" type="text" maxlength="45" id="m_hd_dapnlCondutorRt_daContacts_txtCodPostal_xnTxt2" class="FormElementoWhite" >
   </td></tr><tr>
   <td>
 
@@ -2268,8 +2298,8 @@
 
       <span class="label"><span id="m_hd_dapnlCondutorRt_dtLicCondValidade_lblCpt_lbl">Válida até:&nbsp;</span></span></td>
     <td>
-      <input name="m$hd$dapnlCondutorRt$dtLicCondValidade$xnTxDt" type="text" maxlength="10" id="m_hd_dapnlCondutorRt_dtLicCondValidade_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
-      <a href="javascript:void(0);" onclick=""><img src="./form_files/datePicker.gif" alt="" style="border-style:none;vertical-align:bottom;"></a>
+      <input name="m$hd$dapnlCondutorRt$dtLicCondValidade$xnTxDt" type="date" maxlength="10" id="m_hd_dapnlCondutorRt_dtLicCondValidade_xnTxDt" title="DD-MM-AAAA" class="FormElementoWhite" onkeypress="" onchange="" style="width:70px;">
+      
     </td></tr>
 
   </tbody></table>
@@ -2278,62 +2308,65 @@
 </tr>
 <tr>
   <td>
+
     <div id="dapnlPontosEmbateRt" class="panelBase rightPanel"><div class="panelTitle"><table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
       <tbody><tr>
         <td valign="top" style="width:20px;"><div class="panelNumber">10.</div></td><td style="width:10px;">&nbsp;</td><td><div>Pontos de embate</div></td>
       </tr>
       </tbody></table></div><div class="panelTableContent">
-      <table border="0" class="pEmbInp" cellpadding="0" cellspacing="3" style="background-repeat: no-repeat;background-position:center center;">
+      <table border="0" class="pEmbInp" cellpadding="0" cellspacing="3" style="background-repeat: no-repeat;background-position:center center;margin:0 auto;width:110px">
         <tbody><tr>
           <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate1" type="checkbox" name="m$hd$dapnlPontosEmbateRt$chkPontoEmbate1"></td>
+          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate1" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate1"></td>
           <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate2" type="checkbox" name="m$hd$dapnlPontosEmbateRt$chkPontoEmbate2"></td>
+          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate2" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate2"></td>
           <td></td>
         </tr>
         <tr>
-          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate3" type="checkbox" name="m$hd$dapnlPontosEmbateRt$chkPontoEmbate3"></td>
+          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate3" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate3"></td>
           <td></td>
           <td></td>
           <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate4" type="checkbox" name="m$hd$dapnlPontosEmbateRt$chkPontoEmbate4"></td>
+          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate4" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate4"></td>
         </tr>
         <tr style="height: 55px;">
           <td colspan="5">&nbsp;</td>
         </tr>
         <tr>
-          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate8" type="checkbox" name="m$hd$dapnlPontosEmbateRt$chkPontoEmbate8"></td>
+          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate8" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate8"></td>
           <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate11" type="checkbox" name="m$hd$dapnlPontosEmbateRt$chkPontoEmbate11"></td>
+          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate11" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate11"></td>
           <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate9" type="checkbox" name="m$hd$dapnlPontosEmbateRt$chkPontoEmbate9"></td>
+          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate9" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate9"></td>
         </tr>
         <tr style="height: 55px;">
           <td colspan="5" style="">&nbsp;</td>
         </tr>
         <tr>
-          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate5" type="checkbox" name="m$hd$dapnlPontosEmbateRt$chkPontoEmbate5"></td>
+          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate5" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate5"></td>
           <td></td>
           <td></td>
           <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate10" type="checkbox" name="m$hd$dapnlPontosEmbateRt$chkPontoEmbate10"></td>
+          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate10" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate10"></td>
         </tr>
         <tr>
           <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate6" type="checkbox" name="m$hd$dapnlPontosEmbateRt$chkPontoEmbate6"></td>
+          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate6" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate6"></td>
           <td></td>
-          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate7" type="checkbox" name="m$hd$dapnlPontosEmbateRt$chkPontoEmbate7"></td>
+          <td><input id="m_hd_dapnlPontosEmbateRt_chkPontoEmbate7" type="checkbox" name="m$hd$dapnlPontosEmbateLf$chkPontoEmbate7"></td>
           <td></td>
         </tr>
         </tbody></table>
     </div></div>
+
+
   </td>
 </tr>
 <tr>
   <td>
     <div id="pnlDanosVisRT" class="panelBase rightPanel"><div class="panelTitle"><table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-collapse:collapse;">
       <tbody><tr>
-        <td valign="top" style="width:20px;"><div class="panelNumber">11.</div></td><td style="width:10px;">&nbsp;</td><td><div>Danos visíveis no veículo <img id="m_hd_pnlDanosVisRTimgreq" src="./form_files/required.gif" alt="*"></div></td>
+        <td valign="top" style="width:20px;"><div class="panelNumber">11.</div></td><td style="width:10px;">&nbsp;</td><td><div>Danos visíveis no veículo </div></td>
       </tr>
       </tbody></table></div><div class="panelTableContent">
       <table cellspacing="0" cellpadding="0" border="0" width="100%" style="text-align:left;">
@@ -2414,7 +2447,7 @@
             <tr>
               <td>
 
-                <span class="label"><span id="m_hd_dropdVeiculoCopia_lblCpt_lbl">Pretende que os dados referentes a este veículo sejam<br>copiados para o lado do Veículo A ou para o Veículo B?&nbsp;</span><img id="m_hd_dropdVeiculoCopia_lblCpt_iR" title="Campo de preenchimento obrigatório" src="./form_files/required.gif" alt="*" style="border-width: 0px; display: none;"></span></td>
+                <span class="label"><span id="m_hd_dropdVeiculoCopia_lblCpt_lbl">Pretende que os dados referentes a este veículo sejam<br>copiados para o lado do Veículo A ou para o Veículo B?&nbsp;</span></span></td>
               <td>
                 <select name="m$hd$dropdVeiculoCopia$xnDropD" id="m_hd_dropdVeiculoCopia_xnDropD" disabled="disabled" class="FormElementoWhite">
                   <option selected="selected" value=""></option>
@@ -2489,7 +2522,7 @@
       </tr>
       <tr>
         <td style="width:18px">&nbsp;</td>
-        <td>&nbsp;</td>
+        <td>&nbsp;<td>
         <td style="width:18px;" align="right"><img src="./form_files/canto_inf.gif" width="18" height="20" alt=""></td>
       </tr>
       </tbody></table>
@@ -2508,30 +2541,6 @@
 <div class="actions">
 
 
-
-  <script type="text/javascript">
-      //<![CDATA[
-
-      function submitForm() {
-          var retValue = false;
-
-          if (typeof validatePage == 'function') {
-              retValue = validatePage();
-          } else {
-              retValue = true;
-          }
-
-          if (retValue) {
-              hide("navButtons");
-              show("waitMSG");
-          }
-
-          return retValue;
-      }
-
-      //]]>
-  </script>
-
   <div id="waitMSG">Por favor aguarde... Brevemente </div>
   <table id="navButtons" border="0" cellpadding="0" cellspacing="0">
     <tbody><tr valign="middle">
@@ -2542,19 +2551,6 @@
 
     </tr>
     </tbody></table>
-
-
-
-  <div>
-    Notas:<br><br>
-
-    Os campos assinalados com <img src="./form_files/required.gif" alt=""> são de preenchimento obrigatório
-
-  </div>
-
-
-
-</div>
 </div>
 </div>
 </div>

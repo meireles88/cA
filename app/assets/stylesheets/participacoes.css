@@ -156,13 +156,15 @@ input1, select, textarea
 }
 .leftPanel input, .leftPanel select
 {
-    width:98%;
+    width:70%;
     background-color:#d6d7ed;
+    margin-left: 10%;
 }
 .rightPanel input, .rightPanel select
 {
-    width:98%;
+    width:70%;
     background-color:#f6ffd6;
+    margin-left: 10%;
 }
 .leftPanel .radio input, .rightPanel .radio input
 {

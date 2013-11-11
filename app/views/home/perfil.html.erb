@@ -84,12 +84,9 @@
           <table>
             <tbody>
 
-            <tr>
-              <td>
+            
                 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-                    <%= devise_error_messages! %>
-                    </td>
-                    </tr>
+              
                     <tr>
                       <td>
                         <%= f.label :tipo,"Individual" %>
@@ -109,13 +106,13 @@
                         <%= f.label :nif %>
                       </td>
                       <td>
-                        <%= f.text_field :nif %>
+                        <input name="" type="text" maxlength="45" id="" value="<%= @user.nif %>" class="FormElementoWhite">
                       </td>
                       <td>
                         <%= f.label :email %>
                       </td>
                       <td>
-                        <%= f.email_field :email, :autofocus => true %>
+                        <input name="" type="text" maxlength="45" id="" value="<%= @user.email %>" class="FormElementoWhite">
                       </td>
                     </tr>
                     <tr>
@@ -123,7 +120,7 @@
                         <%= f.label :password %>
                       </td>
                       <td>
-                        <%= f.password_field :password , :autocomplete => "off" %>
+                        <input name="" type="text" maxlength="45" id="" value="<%= @user.password %>" class="FormElementoWhite">
                       </td>
 
                       <td>
@@ -138,13 +135,13 @@
                         <%= f.label :nome %>
                       </td>
                       <td>
-                        <%= f.text_field :nome %>
+                        <input name="" type="text" maxlength="45" id="" value="<%= @user.nome %>" class="FormElementoWhite">
                       </td>
                       <td>
                         <%= f.label :apelido %>
                       </td>
                       <td>
-                        <%= f.text_field :apelido %>
+                        <input name="" type="text" maxlength="45" id="" value="<%= @user.apelido %>" class="FormElementoWhite">
                       </td>
                     </tr>
                     <tr>
@@ -152,13 +149,13 @@
                         <%= f.label :morada %>
                       </td>
                       <td>
-                        <%= f.text_field :morada %>
+                        <input name="" type="text" maxlength="45" id="" value="<%= @user.morada %>" class="FormElementoWhite">
                       </td>
                       <td>
                         <%= f.label :localidade %>
                       </td>
                       <td>
-                        <%= f.text_field :localidade %>
+                        <input name="" type="text" maxlength="45" id="" value="<%= @user.localidade %>" class="FormElementoWhite">
                       </td>
                     </tr>
                     <tr>
@@ -166,18 +163,13 @@
                         <%= f.label :codpostal %>
                       </td>
                       <td>
-                        <%= f.text_field :codpostal %>
+                        <input name="" type="text" maxlength="45" id="" value="<%= @user.codpostal %>" class="FormElementoWhite">
                       </td>
                       <td>
                         País:
                       </td>
                       <td>
-                        <select>
-                          <option value=""></option>
-                          <% Country.all do |c| %>
-                              <option value="<%= c.country %>"><%= c.country %></option>
-                          <%end %>
-                        </select>
+                        ...
                       </td>
                     </tr>
                     <tr>
@@ -195,7 +187,7 @@
                         <%= f.label :telefone %>
                       </td>
                       <td>
-                        <%= f.text_field :telefone %>
+                        <input name="" type="text" maxlength="45" id="" value="<%= @user.telefone %>" class="FormElementoWhite">
                       </td>
                     </tr>
                     <tr>
@@ -203,13 +195,13 @@
                         <%= f.label :telemovel %>
                       </td>
                       <td>
-                        <%= f.text_field :telemovel %>
+                        <input name="" type="text" maxlength="45" id="" value="<%= @user.telemovel %>" class="FormElementoWhite">
                       </td>
                       <td>
-                        <%= f.label :mail %>
+                        <%= f.label :email %>
                       </td>
                       <td>
-                        <%= f.text_field :mail %>
+                        <input name="" type="text" maxlength="45" id="" value="<%= @user.email %>" class="FormElementoWhite">
                       </td>
                     </tr>
 
